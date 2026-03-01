@@ -4,12 +4,17 @@
 
 @layer base {
   body {
-    @apply bg-steel-900 text-steel-300 font-sans antialiased text-[15px] leading-relaxed;
+    @apply bg-surface-base text-stone-200 font-sans antialiased text-[15px] leading-relaxed;
+  }
+
+  ::selection {
+    background: rgba(56, 189, 248, 0.2);
+    color: #f0f9ff;
   }
 }
 
 @layer utilities {
-  .clip-diagonal {
-    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%);
+  .glow-blue {
+    box-shadow: 0 0 20px rgba(56, 189, 248, 0.08), 0 0 60px rgba(56, 189, 248, 0.04);
   }
 }
