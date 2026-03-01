@@ -17,8 +17,8 @@ const DispatchBanner: React.FC = () => (
         </span>
         <span className="text-white text-[13px] font-bold uppercase tracking-wider">24/7 Emergency Dispatch Active</span>
       </div>
-      <a href="tel:1-800-555-0199" className="bg-white text-red-600 px-6 min-h-[40px] flex items-center text-[12px] font-bold uppercase tracking-widest hover:bg-red-50 transition-colors rounded-sm">
-        Call Now: 1-800-555-0199
+      <a href="tel:+15195550199" className="bg-white text-red-600 px-6 min-h-[48px] flex items-center text-[12px] font-bold uppercase tracking-widest hover:bg-red-50 transition-colors rounded-sm">
+        Call Now: (519) 555-0199
       </a>
     </div>
   </div>
@@ -42,7 +42,7 @@ const Header: React.FC = () => (
         <a href="#diagnostics" className="px-5 py-4 hover:text-cyan-400 transition-colors">Diagnostics</a>
         <a href="#systems" className="px-5 py-4 hover:text-cyan-400 transition-colors">Systems</a>
         <a href="#maintenance" className="px-5 py-4 hover:text-cyan-400 transition-colors">Maintenance</a>
-        <a href="#deploy" className="px-5 py-4 hover:text-cyan-400 transition-colors">Deploy</a>
+        <a href="#deploy" className="px-5 py-4 hover:text-cyan-400 transition-colors">Triage</a>
       </nav>
 
       <div className="flex items-center gap-3">
@@ -74,16 +74,23 @@ const Hero: React.FC = () => (
             <span className="text-cyan-400">Systems Engineering.</span>
           </h2>
 
-          <p className="text-[16px] text-stone-400 mb-10 max-w-md leading-relaxed">
+          <p className="text-[16px] text-stone-400 mb-6 max-w-md leading-relaxed">
             We deploy, calibrate, and maintain commercial-grade HVAC infrastructure with sub-2-hour emergency response across Ontario.
           </p>
 
+          {/* Grit Scenario */}
+          <div className="bg-red-600/10 border border-red-500/20 rounded-sm p-4 mb-8 max-w-md">
+            <p className="text-[14px] text-red-300/90 leading-relaxed font-medium">
+              When it's 35°C and your AC dies at 2&nbsp;AM, you don't need a contact form. You need a technician dispatched in under two hours.
+            </p>
+          </div>
+
           <div className="flex flex-col sm:flex-row gap-3">
             <a href="#deploy" className="bg-cyan-400 text-[#0e0d0c] px-8 min-h-[52px] flex items-center justify-center text-[13px] font-bold uppercase tracking-widest hover:bg-cyan-300 transition-colors">
-              Deploy Service Team
+              Request Emergency Triage
             </a>
-            <a href="#diagnostics" className="border border-white/10 text-white px-8 min-h-[52px] flex items-center justify-center text-[13px] font-bold uppercase tracking-widest hover:border-cyan-400/30 transition-colors">
-              Run Diagnostics
+            <a href="tel:+15195550199" className="border border-red-500/30 text-red-300 px-8 min-h-[52px] flex items-center justify-center text-[13px] font-bold uppercase tracking-widest hover:border-red-400/50 transition-colors">
+              Call: (519) 555-0199
             </a>
           </div>
         </div>
@@ -258,9 +265,20 @@ const MaintenanceMatrix: React.FC = () => {
   );
 };
 
-/* ─── Deployment Request Form ─── */
-const DeploymentForm: React.FC = () => {
+/* ─── Emergency Triage Form (Multi-Step) ─── */
+const TriageForm: React.FC = () => {
+  const [step, setStep] = useState(1);
   const [submitted, setSubmitted] = useState(false);
+  const [triage, setTriage] = useState({ status: '', systemType: '', systemAge: '', urgency: '', name: '', phone: '', address: '' });
+
+  const statusOptions = ['Complete Failure', 'Making Noise', 'Leaking', 'Poor Airflow'];
+  const typeOptions = ['AC / Central Air', 'Furnace', 'Heat Pump', 'Boiler / Radiant'];
+  const ageOptions = ['Under 5 years', '5–10 years', 'Over 10 years', 'Unknown'];
+
+  const OptionButton = ({ label, selected, onClick }: { label: string; selected: boolean; onClick: () => void }) => (
+    <button type="button" onClick={onClick} className={`w-full text-left p-4 border transition-colors min-h-[52px] text-[14px] font-medium ${selected ? 'border-cyan-400/40 bg-cyan-400/10 text-white' : 'border-white/5 bg-[#0e0d0c] text-stone-400 hover:border-white/15'
+      }`}>{label}</button>
+  );
 
   return (
     <section id="deploy" className="py-24 px-4 border-t border-white/5">
@@ -272,8 +290,16 @@ const DeploymentForm: React.FC = () => {
                 <div className="h-[1px] w-8 bg-cyan-400/40"></div>
                 <span className="text-[10px] font-mono text-cyan-400/60 uppercase tracking-[0.25em]">03</span>
               </div>
-              <h3 className="text-[28px] font-bold text-white tracking-tight leading-tight mb-3">Deploy<br />Service</h3>
-              <p className="text-stone-500 text-[13px] leading-relaxed">Submit a service request. Our dispatch team will confirm within 2 hours.</p>
+              <h3 className="text-[28px] font-bold text-white tracking-tight leading-tight mb-3">Emergency<br />Triage</h3>
+              <p className="text-stone-500 text-[13px] leading-relaxed">Answer 4 quick questions so we can dispatch the right technician with the right parts.</p>
+
+              {/* Step indicator */}
+              <div className="flex items-center gap-2 mt-6">
+                {[1, 2, 3, 4].map((s) => (
+                  <div key={s} className={`h-1 flex-1 rounded-full transition-colors ${step >= s || submitted ? 'bg-cyan-400' : 'bg-white/10'}`}></div>
+                ))}
+              </div>
+              <p className="text-[10px] font-mono text-stone-600 uppercase tracking-widest mt-2">{submitted ? 'Complete' : `Step ${step} of 4`}</p>
             </div>
           </div>
 
@@ -283,45 +309,103 @@ const DeploymentForm: React.FC = () => {
                 <div className="w-12 h-12 border border-cyan-400/30 mx-auto mb-6 flex items-center justify-center">
                   <svg className="w-6 h-6 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
                 </div>
-                <h4 className="text-white font-semibold text-xl mb-2">Service Request Logged.</h4>
-                <p className="text-stone-500 text-[14px]">Dispatch confirmation within 2 hours. Reference will be sent to your email.</p>
+                <h4 className="text-white font-semibold text-xl mb-2">Triage Complete — Dispatch Queued.</h4>
+                <p className="text-stone-500 text-[14px]">A technician matched to your system type will confirm within 2 hours.</p>
               </div>
             ) : (
-              <form className="border border-white/5 bg-[#111110]" onSubmit={(e) => { e.preventDefault(); setSubmitted(true); }}>
-                <div className="grid grid-cols-1 sm:grid-cols-2">
-                  <div className="p-6 border-b border-r border-white/5">
-                    <label className="text-[10px] font-mono text-stone-600 uppercase tracking-widest block mb-3">Full Name</label>
-                    <input type="text" required className="w-full bg-transparent border-b border-white/10 pb-2 text-white text-[15px] focus:border-cyan-400/40 outline-none transition-colors" />
+              <div className="border border-white/5 bg-[#111110]">
+                {/* Step 1: System Status */}
+                {step === 1 && (
+                  <div className="p-6 flex flex-col gap-4">
+                    <p className="text-[10px] font-mono text-cyan-400/60 uppercase tracking-widest mb-2">What's happening with your system?</p>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                      {statusOptions.map((opt) => (
+                        <OptionButton key={opt} label={opt} selected={triage.status === opt} onClick={() => { setTriage({ ...triage, status: opt }); setTimeout(() => setStep(2), 200); }} />
+                      ))}
+                    </div>
                   </div>
-                  <div className="p-6 border-b border-white/5">
-                    <label className="text-[10px] font-mono text-stone-600 uppercase tracking-widest block mb-3">Phone</label>
-                    <input type="tel" required className="w-full bg-transparent border-b border-white/10 pb-2 text-white text-[15px] focus:border-cyan-400/40 outline-none transition-colors" />
+                )}
+
+                {/* Step 2: System Type & Age */}
+                {step === 2 && (
+                  <div className="p-6 flex flex-col gap-6">
+                    <div className="flex flex-col gap-3">
+                      <p className="text-[10px] font-mono text-cyan-400/60 uppercase tracking-widest">System Type</p>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                        {typeOptions.map((opt) => (
+                          <OptionButton key={opt} label={opt} selected={triage.systemType === opt} onClick={() => setTriage({ ...triage, systemType: opt })} />
+                        ))}
+                      </div>
+                    </div>
+                    <div className="flex flex-col gap-3">
+                      <p className="text-[10px] font-mono text-cyan-400/60 uppercase tracking-widest">System Age</p>
+                      <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                        {ageOptions.map((opt) => (
+                          <OptionButton key={opt} label={opt} selected={triage.systemAge === opt} onClick={() => { setTriage({ ...triage, systemAge: opt }); setTimeout(() => setStep(3), 200); }} />
+                        ))}
+                      </div>
+                    </div>
                   </div>
-                  <div className="p-6 border-b border-r border-white/5">
-                    <label className="text-[10px] font-mono text-stone-600 uppercase tracking-widest block mb-3">Service Address</label>
-                    <input type="text" className="w-full bg-transparent border-b border-white/10 pb-2 text-white text-[15px] focus:border-cyan-400/40 outline-none transition-colors" />
+                )}
+
+                {/* Step 3: Urgency */}
+                {step === 3 && (
+                  <div className="p-6 flex flex-col gap-4">
+                    <p className="text-[10px] font-mono text-cyan-400/60 uppercase tracking-widest mb-2">How urgent is this?</p>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                      <button type="button" onClick={() => { setTriage({ ...triage, urgency: 'emergency' }); setTimeout(() => setStep(4), 200); }}
+                        className={`w-full text-left p-5 border transition-colors min-h-[52px] ${triage.urgency === 'emergency' ? 'border-red-500/40 bg-red-500/10 text-white' : 'border-white/5 bg-[#0e0d0c] text-stone-400 hover:border-red-500/20'
+                          }`}>
+                        <span className="block text-[14px] font-semibold">🚨 Emergency Dispatch Required</span>
+                        <span className="block text-[12px] text-stone-500 mt-1">Technician dispatched within 2 hours</span>
+                      </button>
+                      <button type="button" onClick={() => { setTriage({ ...triage, urgency: 'maintenance' }); setTimeout(() => setStep(4), 200); }}
+                        className={`w-full text-left p-5 border transition-colors min-h-[52px] ${triage.urgency === 'maintenance' ? 'border-cyan-400/40 bg-cyan-400/10 text-white' : 'border-white/5 bg-[#0e0d0c] text-stone-400 hover:border-white/15'
+                          }`}>
+                        <span className="block text-[14px] font-semibold">🔧 Schedule Maintenance</span>
+                        <span className="block text-[12px] text-stone-500 mt-1">Next available slot, usually within 48 hours</span>
+                      </button>
+                    </div>
                   </div>
-                  <div className="p-6 border-b border-white/5">
-                    <label className="text-[10px] font-mono text-stone-600 uppercase tracking-widest block mb-3">System Type</label>
-                    <select className="w-full bg-transparent border-b border-white/10 pb-2 text-white text-[15px] focus:border-cyan-400/40 outline-none transition-colors">
-                      <option className="bg-[#111110]" value="">Select...</option>
-                      <option className="bg-[#111110]" value="furnace">Furnace</option>
-                      <option className="bg-[#111110]" value="ac">Air Conditioning</option>
-                      <option className="bg-[#111110]" value="heatpump">Heat Pump</option>
-                      <option className="bg-[#111110]" value="commercial">Commercial System</option>
-                    </select>
+                )}
+
+                {/* Step 4: Contact Details */}
+                {step === 4 && (
+                  <form onSubmit={(e) => { e.preventDefault(); setSubmitted(true); }}>
+                    <div className="p-6 flex flex-col gap-4">
+                      <p className="text-[10px] font-mono text-cyan-400/60 uppercase tracking-widest mb-2">Your Contact Details</p>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-[1px] bg-white/5">
+                        <div className="p-4 bg-[#111110]">
+                          <label className="text-[10px] font-mono text-stone-600 uppercase tracking-widest block mb-2">Full Name</label>
+                          <input type="text" required value={triage.name} onChange={(e) => setTriage({ ...triage, name: e.target.value })} className="w-full bg-transparent border-b border-white/10 py-3 min-h-[48px] text-white text-[15px] focus:border-cyan-400/40 outline-none transition-colors" />
+                        </div>
+                        <div className="p-4 bg-[#111110]">
+                          <label className="text-[10px] font-mono text-stone-600 uppercase tracking-widest block mb-2">Phone</label>
+                          <input type="tel" required value={triage.phone} onChange={(e) => setTriage({ ...triage, phone: e.target.value })} className="w-full bg-transparent border-b border-white/10 py-3 min-h-[48px] text-white text-[15px] focus:border-cyan-400/40 outline-none transition-colors" />
+                        </div>
+                      </div>
+                      <div className="p-4 bg-[#0e0d0c] border border-white/5">
+                        <label className="text-[10px] font-mono text-stone-600 uppercase tracking-widest block mb-2">Service Address</label>
+                        <input type="text" required value={triage.address} onChange={(e) => setTriage({ ...triage, address: e.target.value })} className="w-full bg-transparent border-b border-white/10 py-3 min-h-[48px] text-white text-[15px] focus:border-cyan-400/40 outline-none transition-colors" />
+                      </div>
+                    </div>
+                    <div className="p-6 border-t border-white/5">
+                      <button type="submit" className="w-full bg-cyan-400 text-[#0e0d0c] min-h-[52px] text-[13px] font-bold uppercase tracking-widest hover:bg-cyan-300 transition-colors">
+                        {triage.urgency === 'emergency' ? 'Dispatch Emergency Technician' : 'Schedule Service Visit'}
+                      </button>
+                    </div>
+                  </form>
+                )}
+
+                {/* Back button (steps 2-4) */}
+                {step > 1 && !submitted && (
+                  <div className="px-6 pb-4">
+                    <button type="button" onClick={() => setStep(step - 1)} className="text-[11px] font-mono text-stone-600 uppercase tracking-widest hover:text-stone-400 transition-colors min-h-[48px]">
+                      ← Back
+                    </button>
                   </div>
-                  <div className="p-6 sm:col-span-2">
-                    <label className="text-[10px] font-mono text-stone-600 uppercase tracking-widest block mb-3">Issue Description</label>
-                    <textarea rows={3} required className="w-full bg-transparent border-b border-white/10 pb-2 text-white text-[15px] focus:border-cyan-400/40 outline-none transition-colors resize-none"></textarea>
-                  </div>
-                </div>
-                <div className="p-6 border-t border-white/5">
-                  <button type="submit" className="w-full bg-cyan-400 text-[#0e0d0c] min-h-[52px] text-[13px] font-bold uppercase tracking-widest hover:bg-cyan-300 transition-colors">
-                    Submit Service Request
-                  </button>
-                </div>
-              </form>
+                )}
+              </div>
             )}
           </div>
         </div>
@@ -333,15 +417,39 @@ const DeploymentForm: React.FC = () => {
 /* ─── Footer ─── */
 const Footer: React.FC = () => (
   <footer className="py-10 px-4 border-t border-white/5 mb-14">
-    <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-      <div className="flex items-center gap-6 text-[10px] font-mono text-stone-600 uppercase tracking-widest">
-        <span>Apex Climate Systems</span>
-        <span>LIC# 8492021</span>
-        <span>© {new Date().getFullYear()}</span>
+    <div className="max-w-7xl mx-auto flex flex-col gap-6">
+      {/* Trust Badges */}
+      <div className="flex flex-wrap items-center justify-center gap-4">
+        {[
+          { badge: 'TSSA Certified', icon: '🛡️' },
+          { badge: 'WSIB Insured', icon: '✅' },
+          { badge: '24/7 Dispatch', icon: '🚨' },
+        ].map((item) => (
+          <div key={item.badge} className="flex items-center gap-2 border border-white/5 bg-[#111110] px-4 py-2">
+            <span className="text-[12px]">{item.icon}</span>
+            <span className="text-[10px] font-mono text-stone-400 uppercase tracking-widest">{item.badge}</span>
+          </div>
+        ))}
       </div>
-      <div className="flex items-center gap-2 border border-white/5 px-3 py-1.5">
+
+      {/* Info row */}
+      <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-1 text-[10px] font-mono text-stone-600 uppercase tracking-widest">
+          <span>Apex Climate Systems</span>
+          <span>LIC# 8492021</span>
+          <a href="tel:+15195550199" className="hover:text-stone-400 transition-colors min-h-[48px] inline-flex items-center">(519) 555-0199</a>
+          <span>© {new Date().getFullYear()}</span>
+        </div>
+        <div className="flex items-center gap-6 text-[10px] font-mono text-stone-600 uppercase tracking-widest">
+          <a href="#" className="hover:text-stone-400 transition-colors min-h-[48px] inline-flex items-center">Privacy Policy</a>
+          <a href="#" className="hover:text-stone-400 transition-colors min-h-[48px] inline-flex items-center">Terms of Service</a>
+        </div>
+      </div>
+
+      {/* Status */}
+      <div className="flex items-center justify-center gap-2">
         <div className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse"></div>
-        <span className="text-[10px] font-mono text-stone-500 uppercase tracking-widest">Performance: Optimized</span>
+        <span className="text-[10px] font-mono text-stone-500 uppercase tracking-widest">All systems operational</span>
       </div>
     </div>
   </footer>
@@ -355,7 +463,7 @@ const App: React.FC = () => (
       <Hero />
       <DiagnosticsGrid />
       <MaintenanceMatrix />
-      <DeploymentForm />
+      <TriageForm />
     </main>
     <Footer />
     <DispatchBanner />
