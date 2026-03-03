@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 /* Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â
    HVAC Ã¢â‚¬â€ "The Clinical/Service Structure"
@@ -56,91 +56,78 @@ const Header: React.FC = () => (
 );
 
 /* Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ Split-Screen Hero Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
-const Hero: React.FC = () => (
-  <section className="min-h-[85vh] flex items-center relative overflow-hidden axiom-grain">
-    <div className="absolute inset-0 bg-gradient-to-r from-[#0e0d0c] via-[#0e0d0c] to-cyan-950/20"></div>
-    <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(9,10,11,0.2)_0%,rgba(9,10,11,0.78)_80%,rgba(9,10,11,0.92)_100%)]"></div>
+const Hero: React.FC = () => {
+  const heroBgRef = useRef<HTMLDivElement | null>(null);
 
-    <div className="axiom-shell-inner w-full relative z-10 axiom-shell-section">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-        {/* Left: Content */}
-        <div>
-          <div className="flex items-center gap-3 mb-8">
-            <div className="h-[1px] w-12 bg-cyan-400/40"></div>
-            <span className="text-[11px] font-mono text-cyan-400/70 uppercase tracking-[0.3em]">Climate Infrastructure</span>
-          </div>
+  useEffect(() => {
+    let ticking = false;
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        if (heroBgRef.current) {
+          const y = Math.min(window.scrollY * 0.11, 84);
+          heroBgRef.current.style.transform = `translate3d(0, ${y}px, 0) scale(1.08)`;
+        }
+        ticking = false;
+      });
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
-          <h2 className="hero-headline hero-fade-in font-bold text-white mb-6">
-            Precision Climate<br />
-            <span className="text-cyan-400">Systems Engineering.</span>
+  return (
+    <section className="min-h-[86vh] flex items-center relative overflow-hidden axiom-grain">
+      <div
+        ref={heroBgRef}
+        className="absolute inset-0 bg-cover bg-center will-change-transform"
+        style={{ backgroundImage: "url('/hero-industrial.png')", transform: 'translate3d(0,0,0) scale(1.08)' }}
+      ></div>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(9,10,11,0.3)_0%,rgba(9,10,11,0.74)_58%,rgba(9,10,11,0.95)_100%)]"></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-black/72 via-black/56 to-black/38"></div>
+
+      <div className="axiom-shell-inner w-full relative z-10 axiom-shell-section">
+        <div className="max-w-4xl">
+          <p className="font-axiomMono text-axiom-text-mute text-[11px] uppercase tracking-[0.32em] mb-6">STATUS: DISPATCH INFRASTRUCTURE ACTIVE</p>
+
+          <h2 className="hero-headline hero-fade-in text-axiom-text-main mb-6">
+            Engineer premium HVAC demand into booked service calls.
           </h2>
 
-          <p className="hero-subheading hero-fade-in text-stone-300 mb-6 max-w-md">
-            We deploy, calibrate, and maintain commercial-grade HVAC infrastructure with sub-2-hour emergency response across Ontario.
+          <p className="hero-subheading hero-fade-in text-axiom-text-main/90 mb-10 max-w-2xl">
+            Deploy a conversion-first digital system that keeps your dispatch pipeline full during heat waves, cold snaps, and emergency surge traffic.
           </p>
 
-          {/* Grit Scenario */}
-          <div className="bg-red-600/10 border border-red-500/20 rounded-sm p-4 mb-8 max-w-md">
-            <p className="text-[14px] text-red-300/90 leading-relaxed font-medium">
-              When it's 35Ã‚Â°C and your AC dies at 2&nbsp;AM, you don't need a contact form. You need a technician dispatched in under two hours.
-            </p>
-          </div>
-
-          <div className="flex flex-col sm:flex-row gap-3">
-            <a href="#deploy" className="magnetic-primary bg-axiom-accent text-axiom-text-main px-8 min-h-[52px] flex items-center justify-center text-[13px] font-bold uppercase tracking-widest hover:bg-[#f05f32] transition-colors">
+          <div className="flex flex-col sm:flex-row gap-3 mb-10">
+            <a href="#deploy" className="magnetic-primary hero-primary-cta bg-axiom-accent text-axiom-text-main px-8 min-h-[52px] flex items-center justify-center text-[13px] font-bold uppercase tracking-widest transition-colors">
               Request Emergency Triage
             </a>
-            <a href="#numbers" className="text-axiom-text-main/80 text-[14px] inline-flex items-center gap-1 hover:text-white transition-colors">
+            <a href="#numbers" className="text-axiom-text-main/85 text-[15px] inline-flex items-center gap-1 hover:text-white transition-colors">
               See the numbers <span aria-hidden>{'->'}</span>
             </a>
-            <a href="tel:+15195550199" className="border border-red-500/30 text-red-300 px-8 min-h-[52px] flex items-center justify-center text-[13px] font-bold uppercase tracking-widest hover:border-red-400/50 transition-colors">
+            <a href="tel:+15195550199" className="border border-white/30 text-white px-8 min-h-[52px] flex items-center justify-center text-[13px] font-bold uppercase tracking-widest hover:border-axiom-accent/65 transition-colors">
               Call: (519) 555-0199
             </a>
           </div>
-        </div>
 
-        {/* Right: Technical Schematic */}
-        <div className="hidden lg:block">
-          <div className="axiom-bento p-8 relative">
-            <div className="absolute top-4 right-4 flex items-center gap-2">
-              <div className="w-1.5 h-1.5 bg-cyan-400 rounded-full animate-pulse"></div>
-              <span className="text-[9px] font-mono text-cyan-400/60 uppercase tracking-widest">Live System</span>
-            </div>
-
-            <div className="grid grid-cols-2 gap-4 mb-6">
-              {[
-                { label: 'Supply Temp', value: '72Ã‚Â°F', status: 'optimal' },
-                { label: 'Return Temp', value: '68Ã‚Â°F', status: 'optimal' },
-                { label: 'Airflow CFM', value: '1,200', status: 'optimal' },
-                { label: 'Humidity', value: '45%', status: 'optimal' },
-              ].map((m, i) => (
-                <div key={i} className="axiom-bento p-4">
-                  <div className="text-[9px] font-mono text-stone-600 uppercase tracking-widest mb-2">{m.label}</div>
-                  <div className="text-[24px] font-bold text-white tracking-tight leading-none">{m.value}</div>
-                  <div className="flex items-center gap-1.5 mt-2">
-                    <div className="w-1 h-1 bg-emerald-400 rounded-full"></div>
-                    <span className="text-[9px] font-mono text-emerald-400/70 uppercase">{m.status}</span>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Simulated efficiency bar */}
-            <div className="axiom-bento p-4">
-              <div className="flex justify-between items-center mb-2">
-                <span className="text-[9px] font-mono text-stone-600 uppercase tracking-widest">System Efficiency</span>
-                <span className="text-[13px] font-mono text-cyan-400 font-bold">96.4%</span>
+          <div className="grid grid-cols-2 md:grid-cols-4 border border-white/15 bg-black/25 backdrop-blur-sm">
+            {[
+              { label: 'Response Target', value: '<2 Hours' },
+              { label: 'Dispatch Coverage', value: '24/7' },
+              { label: 'Uptime', value: '99.99%' },
+              { label: 'Lead Quality', value: 'Pre-Qualified' },
+            ].map((item) => (
+              <div key={item.label} className="p-4 border-r border-b md:border-b-0 border-white/15 last:border-r-0">
+                <div className="font-axiomMono text-[22px] text-axiom-text-main leading-none">{item.value}</div>
+                <div className="font-axiomMono text-[10px] text-axiom-text-mute uppercase tracking-[0.2em] mt-2">{item.label}</div>
               </div>
-              <div className="h-1.5 bg-white/5 rounded-full overflow-hidden">
-                <div className="h-full bg-gradient-to-r from-cyan-400 to-emerald-400 rounded-full" style={{ width: '96.4%' }}></div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 /* Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ System Diagnostics Grid Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
 const DiagnosticsGrid: React.FC = () => (
@@ -150,14 +137,22 @@ const DiagnosticsGrid: React.FC = () => (
         {/* Label column */}
         <div className="col-span-12 md:col-span-3">
           <div className="sticky top-24">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="h-[1px] w-8 bg-cyan-400/40"></div>
-              <span className="text-[10px] font-mono text-cyan-400/60 uppercase tracking-[0.25em]">01</span>
+              <div className="flex items-center gap-3 mb-4">
+                <div className="h-[1px] w-8 bg-cyan-400/40"></div>
+                <span className="text-[10px] font-mono text-cyan-400/60 uppercase tracking-[0.25em]">01</span>
+              </div>
+              <h3 className="text-[28px] font-bold text-white tracking-tight leading-tight mb-3">Core<br />Systems</h3>
+              <h4 className="axiom-command-heading mb-3">ELIMINATING ROI FRICTION</h4>
+              <div className="axiom-reading-measure">
+                <div className="axiom-reading-prose">
+                  <p>Comprehensive climate solutions engineered for peak performance.</p>
+                  <p>Dispatch reliability and pre-qualified intake prevent emergency demand from turning into lost revenue windows.</p>
+                </div>
+              </div>
+              <div className="axiom-mono-callout mt-4">AXIOM // Every minute of downtime reroutes urgent calls to faster operators.</div>
+              <div className="axiom-chapter-divider mt-5"></div>
             </div>
-            <h3 className="text-[28px] font-bold text-white tracking-tight leading-tight mb-3">Core<br />Systems</h3>
-            <p className="text-stone-500 text-[13px] leading-relaxed">Comprehensive climate solutions engineered for peak performance.</p>
           </div>
-        </div>
 
         {/* Service cards Ã¢â‚¬â€ rigid 3-column grid */}
         <div className="col-span-12 md:col-span-9 grid grid-cols-1 sm:grid-cols-3 gap-[1px] bg-white/5">
@@ -189,6 +184,10 @@ const ROITerminal: React.FC = () => {
   const [lostCalls, setLostCalls] = useState(2);
   const [displayValue, setDisplayValue] = useState(120000);
   const annualLeak = lostCalls * 5000 * 12;
+  const monthlyLeak = Math.round(displayValue / 12);
+  const infrastructureInvestment = 7500;
+  const paybackMonths = monthlyLeak > 0 ? infrastructureInvestment / monthlyLeak : 0;
+  const valueTone = displayValue >= 0 ? 'text-axiom-accent' : 'text-[#d27474]';
 
   useEffect(() => {
     const start = displayValue;
@@ -207,16 +206,108 @@ const ROITerminal: React.FC = () => {
   return (
     <section id="numbers" className="axiom-shell-section axiom-grain border-t border-axiom-border">
       <div className="axiom-shell-inner max-w-5xl">
-        <div className="axiom-glass terminal-grid p-8 md:p-10">
-          <p className="font-axiomMono text-axiom-text-mute text-[11px] uppercase tracking-[0.2em] mb-4">ROI TERMINAL</p>
-          <h3 className="hero-headline text-[40px] mb-3">The $120k Dashboard</h3>
-          <div className="axiom-bento is-visible p-6 md:p-8">
-            <div className="flex justify-between items-center mb-3">
-              <label htmlFor="hvac-roi" className="font-axiomMono text-axiom-text-mute">Lost Dispatch Calls / Month</label>
-              <span className="font-axiomMono text-[28px]">{lostCalls}</span>
+        <div className="axiom-bento is-visible relative overflow-hidden p-0 bg-axiom-surface border border-axiom-border">
+          <div
+            className="pointer-events-none absolute inset-0 opacity-30"
+            style={{
+              backgroundImage:
+                'linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px)',
+              backgroundSize: '28px 28px',
+            }}
+          />
+          <div className="h-px w-full bg-axiom-accent" />
+          <div className="relative axiom-glass border-0 rounded-none p-6 md:p-8">
+            <p className="font-axiomMono text-axiom-text-mute text-[11px] uppercase tracking-[0.2em] mb-4">ROI TERMINAL</p>
+            <h3 className="hero-headline text-[32px] md:text-[40px] mb-6">The $120k Dashboard</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+              <div className="space-y-5">
+                <div>
+                  <div className="flex items-center justify-between mb-2">
+                    <label htmlFor="hvac-roi" className="font-axiomMono text-[12px] uppercase tracking-[0.12em] text-axiom-text-mute">
+                      Lost Dispatch Calls / Month
+                    </label>
+                    <button
+                      type="button"
+                      title="Estimated high-intent repair calls lost due to speed and trust friction."
+                      className="font-axiomMono text-[11px] text-axiom-text-mute border border-axiom-border rounded-full w-5 h-5"
+                    >
+                      ?
+                    </button>
+                  </div>
+                  <div className="flex items-end justify-between mb-2">
+                    <span className="font-axiomMono text-[12px] text-axiom-text-mute">Current estimate</span>
+                    <span className="font-axiomMono text-[26px] leading-none text-axiom-accent tabular-nums">{lostCalls}</span>
+                  </div>
+                  <input
+                    id="hvac-roi"
+                    type="range"
+                    min="1"
+                    max="8"
+                    value={lostCalls}
+                    onChange={(e) => setLostCalls(Number(e.target.value))}
+                    className="w-full h-2 rounded-full cursor-pointer accent-[#E4572E]"
+                  />
+                  <div
+                    aria-hidden="true"
+                    className="h-[10px] rounded mt-2 border border-axiom-border/60"
+                    style={{
+                      backgroundImage: 'repeating-linear-gradient(to right, rgba(228,87,46,0.45), rgba(228,87,46,0.45) 1px, transparent 1px, transparent 14.285%)',
+                    }}
+                  />
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <label className="space-y-2">
+                    <span className="flex items-center gap-2 font-axiomMono text-[11px] uppercase tracking-[0.12em] text-axiom-text-mute">
+                      Avg Ticket Value
+                      <button
+                        type="button"
+                        title="Financial baseline used in the model."
+                        className="font-axiomMono text-[10px] text-axiom-text-mute border border-axiom-border rounded-full w-4 h-4 leading-none"
+                      >
+                        ?
+                      </button>
+                    </span>
+                    <input
+                      type="number"
+                      value={5000}
+                      readOnly
+                      className="w-full bg-axiom-base/60 border border-axiom-border rounded-lg px-3 py-2 font-axiomMono text-axiom-text-main focus:outline-none focus:border-axiom-accent/70"
+                    />
+                  </label>
+                  <label className="space-y-2">
+                    <span className="font-axiomMono text-[11px] uppercase tracking-[0.12em] text-axiom-text-mute">Months / Year</span>
+                    <input
+                      type="number"
+                      value={12}
+                      readOnly
+                      className="w-full bg-axiom-base/60 border border-axiom-border rounded-lg px-3 py-2 font-axiomMono text-axiom-text-main focus:outline-none focus:border-axiom-accent/70"
+                    />
+                  </label>
+                </div>
+              </div>
+
+              <div className="space-y-4">
+                <div className="axiom-bento p-4">
+                  <p className="font-axiomMono text-[11px] uppercase tracking-[0.12em] text-axiom-text-mute mb-2">Annual ROI Leak</p>
+                  <p className={`font-axiomMono text-[30px] leading-none tabular-nums ${valueTone}`}>
+                    ${displayValue.toLocaleString()}
+                  </p>
+                </div>
+                <div className="axiom-bento p-4">
+                  <p className="font-axiomMono text-[11px] uppercase tracking-[0.12em] text-axiom-text-mute mb-2">Monthly Recovery Potential</p>
+                  <p className="font-axiomMono text-[24px] leading-none tabular-nums text-axiom-text-main">
+                    ${monthlyLeak.toLocaleString()}
+                  </p>
+                </div>
+                <div className="axiom-bento p-4">
+                  <p className="font-axiomMono text-[11px] uppercase tracking-[0.12em] text-axiom-text-mute mb-2">Payback Period</p>
+                  <p className="font-axiomMono text-[24px] leading-none tabular-nums text-axiom-text-main">
+                    {paybackMonths.toFixed(1)} months
+                  </p>
+                </div>
+              </div>
             </div>
-            <input id="hvac-roi" type="range" min="1" max="8" value={lostCalls} onChange={(e) => setLostCalls(Number(e.target.value))} className="w-full accent-[#E4572E]" />
-            <p className="font-axiomMono text-[30px] mt-6 text-axiom-accent">${displayValue.toLocaleString()}</p>
           </div>
         </div>
       </div>
