@@ -4,12 +4,22 @@
 
 @layer base {
   body {
-    @apply bg-surface-base text-stone-200 font-sans antialiased text-[15px] leading-relaxed;
+    @apply bg-axiom-base text-axiom-text-main font-axiomSans leading-[1.6] antialiased text-[15px];
   }
 
   ::selection {
     background: rgba(56, 189, 248, 0.2);
     color: #f0f9ff;
+  }
+}
+
+@layer components {
+  .axiom-bento {
+    @apply bg-axiom-elevated border border-axiom-border rounded-2xl p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.05)];
+  }
+
+  .axiom-glass {
+    @apply bg-axiom-surface/60 backdrop-blur-md border border-axiom-border/50 rounded-xl;
   }
 }
 
