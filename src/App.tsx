@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 /* ═══════════════════════════════════════════════════════════════════
    HVAC — "The Clinical/Service Structure"
@@ -8,8 +8,8 @@ import React, { useState } from 'react';
 
 /* ─── Sticky Emergency Dispatch Banner ─── */
 const DispatchBanner: React.FC = () => (
-  <div className="fixed bottom-0 left-0 right-0 z-50 bg-red-600 border-t border-red-500">
-    <div className="max-w-7xl mx-auto px-4 h-14 flex items-center justify-between">
+  <div className="fixed bottom-0 left-0 right-0 z-50 bg-axiom-accent border-t border-axiom-border">
+    <div className="axiom-shell-inner px-6 md:px-10 xl:px-20 h-14 flex items-center justify-between">
       <div className="flex items-center gap-3">
         <span className="relative flex h-2.5 w-2.5">
           <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
@@ -17,7 +17,7 @@ const DispatchBanner: React.FC = () => (
         </span>
         <span className="text-white text-[13px] font-bold uppercase tracking-wider">24/7 Emergency Dispatch Active</span>
       </div>
-      <a href="tel:+15195550199" className="bg-white text-red-600 px-6 min-h-[48px] flex items-center text-[12px] font-bold uppercase tracking-widest hover:bg-red-50 transition-colors rounded-sm">
+      <a href="tel:+15195550199" className="magnetic-primary bg-axiom-text-main text-axiom-base px-6 min-h-[48px] flex items-center text-[12px] font-bold uppercase tracking-widest hover:bg-white transition-colors rounded-sm">
         Call Now: (519) 555-0199
       </a>
     </div>
@@ -26,8 +26,8 @@ const DispatchBanner: React.FC = () => (
 
 /* ─── Header ─── */
 const Header: React.FC = () => (
-  <header className="sticky top-0 z-40 w-full bg-[#0e0d0c]/95 backdrop-blur-xl border-b border-white/5">
-    <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+  <header className="fixed top-4 left-0 right-0 z-40 px-6 md:px-10 xl:px-20">
+    <div className="axiom-glass axiom-shell-inner border-b border-axiom-border h-16 flex items-center justify-between px-6">
       <div className="flex items-center gap-3">
         <div className="w-8 h-8 border border-cyan-400/40 rounded-none flex items-center justify-center bg-cyan-400/10">
           <svg className="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" /></svg>
@@ -57,10 +57,10 @@ const Header: React.FC = () => (
 
 /* ─── Split-Screen Hero ─── */
 const Hero: React.FC = () => (
-  <section className="min-h-[85vh] flex items-center relative overflow-hidden">
+  <section className="min-h-[85vh] flex items-center relative overflow-hidden axiom-grain">
     <div className="absolute inset-0 bg-gradient-to-r from-[#0e0d0c] via-[#0e0d0c] to-cyan-950/20"></div>
 
-    <div className="max-w-7xl mx-auto px-4 w-full relative z-10">
+    <div className="axiom-shell-inner w-full relative z-10 axiom-shell-section">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         {/* Left: Content */}
         <div>
@@ -86,7 +86,7 @@ const Hero: React.FC = () => (
           </div>
 
           <div className="flex flex-col sm:flex-row gap-3">
-            <a href="#deploy" className="bg-cyan-400 text-[#0e0d0c] px-8 min-h-[52px] flex items-center justify-center text-[13px] font-bold uppercase tracking-widest hover:bg-cyan-300 transition-colors">
+            <a href="#deploy" className="magnetic-primary bg-axiom-accent text-axiom-text-main px-8 min-h-[52px] flex items-center justify-center text-[13px] font-bold uppercase tracking-widest hover:bg-[#f05f32] transition-colors">
               Request Emergency Triage
             </a>
             <a href="tel:+15195550199" className="border border-red-500/30 text-red-300 px-8 min-h-[52px] flex items-center justify-center text-[13px] font-bold uppercase tracking-widest hover:border-red-400/50 transition-colors">
@@ -97,7 +97,7 @@ const Hero: React.FC = () => (
 
         {/* Right: Technical Schematic */}
         <div className="hidden lg:block">
-          <div className="border border-white/5 bg-[#111110] p-8 relative">
+          <div className="axiom-bento p-8 relative">
             <div className="absolute top-4 right-4 flex items-center gap-2">
               <div className="w-1.5 h-1.5 bg-cyan-400 rounded-full animate-pulse"></div>
               <span className="text-[9px] font-mono text-cyan-400/60 uppercase tracking-widest">Live System</span>
@@ -110,7 +110,7 @@ const Hero: React.FC = () => (
                 { label: 'Airflow CFM', value: '1,200', status: 'optimal' },
                 { label: 'Humidity', value: '45%', status: 'optimal' },
               ].map((m, i) => (
-                <div key={i} className="border border-white/5 bg-[#0e0d0c] p-4">
+                <div key={i} className="axiom-bento p-4">
                   <div className="text-[9px] font-mono text-stone-600 uppercase tracking-widest mb-2">{m.label}</div>
                   <div className="text-[24px] font-bold text-white tracking-tight leading-none">{m.value}</div>
                   <div className="flex items-center gap-1.5 mt-2">
@@ -122,7 +122,7 @@ const Hero: React.FC = () => (
             </div>
 
             {/* Simulated efficiency bar */}
-            <div className="border border-white/5 bg-[#0e0d0c] p-4">
+            <div className="axiom-bento p-4">
               <div className="flex justify-between items-center mb-2">
                 <span className="text-[9px] font-mono text-stone-600 uppercase tracking-widest">System Efficiency</span>
                 <span className="text-[13px] font-mono text-cyan-400 font-bold">96.4%</span>
@@ -140,8 +140,8 @@ const Hero: React.FC = () => (
 
 /* ─── System Diagnostics Grid ─── */
 const DiagnosticsGrid: React.FC = () => (
-  <section id="diagnostics" className="py-24 px-4 border-t border-white/5">
-    <div className="max-w-7xl mx-auto">
+  <section id="diagnostics" className="axiom-shell-section axiom-grain border-t border-axiom-border">
+    <div className="axiom-shell-inner">
       <div className="grid grid-cols-12 gap-6">
         {/* Label column */}
         <div className="col-span-12 md:col-span-3">
@@ -165,7 +165,7 @@ const DiagnosticsGrid: React.FC = () => (
             { id: 'CT-05', title: 'Controls & IoT', desc: 'Smart thermostat integration with building automation systems. Remote diagnostics capability.', metric: '24/7 Link' },
             { id: 'DT-06', title: 'Duct Engineering', desc: 'Manual J/D load calculations. Static pressure testing and leak sealing to <4% loss.', metric: '<4% Loss' },
           ].map((s, i) => (
-            <div key={i} className="bg-[#111110] p-6 group hover:bg-[#161514] transition-colors">
+            <div key={i} className="axiom-bento p-6 group hover:bg-[#161514] transition-colors">
               <div className="flex justify-between items-start mb-4">
                 <span className="text-[9px] font-mono text-stone-600 uppercase tracking-widest">{s.id}</span>
                 <span className="text-[10px] font-mono text-cyan-400/60 uppercase tracking-widest">{s.metric}</span>
@@ -195,8 +195,8 @@ const MaintenanceMatrix: React.FC = () => {
   ];
 
   return (
-    <section id="maintenance" className="py-24 px-4 border-t border-white/5">
-      <div className="max-w-7xl mx-auto">
+    <section id="maintenance" className="axiom-shell-section axiom-grain border-t border-axiom-border">
+      <div className="axiom-shell-inner">
         <div className="grid grid-cols-12 gap-6">
           <div className="col-span-12 md:col-span-3">
             <div className="sticky top-24">
@@ -210,7 +210,7 @@ const MaintenanceMatrix: React.FC = () => {
           </div>
 
           <div className="col-span-12 md:col-span-9">
-            <div className="border border-white/5 overflow-hidden">
+            <div className="axiom-glass overflow-hidden">
               {/* Header row */}
               <div className="grid grid-cols-5 bg-[#111110]">
                 <div className="p-4 border-r border-white/5">
@@ -251,7 +251,7 @@ const MaintenanceMatrix: React.FC = () => {
                 { name: 'Precision', price: '$299/season', includes: '4 visits/year' },
                 { name: 'Enterprise', price: '$599/season', includes: 'Unlimited + Priority' },
               ].map((plan, i) => (
-                <div key={i} className={`p-6 ${i === 2 ? 'bg-cyan-400/5 border border-cyan-400/10' : 'bg-[#111110]'}`}>
+                <div key={i} className={`axiom-bento p-6 ${i === 2 ? 'bg-cyan-400/5 border-cyan-400/10' : ''}`}>
                   <div className="text-[10px] font-mono text-stone-600 uppercase tracking-widest mb-1">{plan.name}</div>
                   <div className="text-[22px] font-bold text-white tracking-tight mb-1">{plan.price}</div>
                   <div className="text-[11px] text-stone-500">{plan.includes}</div>
@@ -281,8 +281,8 @@ const TriageForm: React.FC = () => {
   );
 
   return (
-    <section id="deploy" className="py-24 px-4 border-t border-white/5">
-      <div className="max-w-7xl mx-auto">
+    <section id="deploy" className="axiom-shell-section axiom-grain border-t border-axiom-border">
+      <div className="axiom-shell-inner">
         <div className="grid grid-cols-12 gap-6">
           <div className="col-span-12 md:col-span-3">
             <div className="sticky top-24">
@@ -305,7 +305,7 @@ const TriageForm: React.FC = () => {
 
           <div className="col-span-12 md:col-span-9">
             {submitted ? (
-              <div className="border border-cyan-400/20 bg-cyan-400/5 p-16 text-center">
+              <div className="axiom-glass border-cyan-400/20 bg-cyan-400/5 p-16 text-center">
                 <div className="w-12 h-12 border border-cyan-400/30 mx-auto mb-6 flex items-center justify-center">
                   <svg className="w-6 h-6 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
                 </div>
@@ -313,7 +313,7 @@ const TriageForm: React.FC = () => {
                 <p className="text-stone-500 text-[14px]">A technician matched to your system type will confirm within 2 hours.</p>
               </div>
             ) : (
-              <div className="border border-white/5 bg-[#111110]">
+              <div className="axiom-glass">
                 {/* Step 1: System Status */}
                 {step === 1 && (
                   <div className="p-6 flex flex-col gap-4">
@@ -390,7 +390,7 @@ const TriageForm: React.FC = () => {
                       </div>
                     </div>
                     <div className="p-6 border-t border-white/5">
-                      <button type="submit" className="w-full bg-cyan-400 text-[#0e0d0c] min-h-[52px] text-[13px] font-bold uppercase tracking-widest hover:bg-cyan-300 transition-colors">
+                      <button type="submit" className="magnetic-primary w-full bg-axiom-accent text-axiom-text-main min-h-[52px] text-[13px] font-bold uppercase tracking-widest hover:bg-[#f05f32] transition-colors">
                         {triage.urgency === 'emergency' ? 'Dispatch Emergency Technician' : 'Schedule Service Visit'}
                       </button>
                     </div>
@@ -416,16 +416,16 @@ const TriageForm: React.FC = () => {
 
 /* ─── Footer ─── */
 const Footer: React.FC = () => (
-  <footer className="py-10 px-4 border-t border-white/5 mb-14">
-    <div className="max-w-7xl mx-auto flex flex-col gap-6">
+  <footer className="axiom-shell-section border-t border-axiom-border mb-14">
+    <div className="axiom-shell-inner flex flex-col gap-6">
       {/* Trust Badges */}
-      <div className="flex flex-wrap items-center justify-center gap-4">
+      <div className="grid md:grid-cols-3 gap-4">
         {[
           { badge: 'TSSA Certified', icon: '🛡️' },
           { badge: 'WSIB Insured', icon: '✅' },
           { badge: '24/7 Dispatch', icon: '🚨' },
         ].map((item) => (
-          <div key={item.badge} className="flex items-center gap-2 border border-white/5 bg-[#111110] px-4 py-2">
+          <div key={item.badge} className="axiom-bento flex items-center gap-2 px-4 py-2">
             <span className="text-[12px]">{item.icon}</span>
             <span className="text-[10px] font-mono text-stone-400 uppercase tracking-widest">{item.badge}</span>
           </div>
@@ -433,41 +433,67 @@ const Footer: React.FC = () => (
       </div>
 
       {/* Info row */}
-      <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-        <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-1 text-[10px] font-mono text-stone-600 uppercase tracking-widest">
+      <div className="grid md:grid-cols-3 gap-4">
+        <div className="axiom-bento flex flex-wrap items-center justify-center gap-x-6 gap-y-1 text-[10px] font-mono text-stone-600 uppercase tracking-widest">
           <span>Apex Climate Systems</span>
           <span>LIC# 8492021</span>
           <a href="tel:+15195550199" className="hover:text-stone-400 transition-colors min-h-[48px] inline-flex items-center">(519) 555-0199</a>
           <span>© {new Date().getFullYear()}</span>
         </div>
-        <div className="flex items-center gap-6 text-[10px] font-mono text-stone-600 uppercase tracking-widest">
-          <a href="#" className="hover:text-stone-400 transition-colors min-h-[48px] inline-flex items-center">Privacy Policy</a>
-          <a href="#" className="hover:text-stone-400 transition-colors min-h-[48px] inline-flex items-center">Terms of Service</a>
+        <div className="axiom-bento flex items-center gap-6 text-[10px] font-mono text-axiom-text-mute uppercase tracking-widest">
+          <a href="#" className="hover:text-white transition-colors min-h-[48px] inline-flex items-center">Privacy Policy</a>
+          <a href="#" className="hover:text-white transition-colors min-h-[48px] inline-flex items-center">Terms of Service</a>
         </div>
-      </div>
-
-      {/* Status */}
-      <div className="flex items-center justify-center gap-2">
-        <div className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse"></div>
-        <span className="text-[10px] font-mono text-stone-500 uppercase tracking-widest">All systems operational</span>
+        <div className="axiom-bento flex items-center justify-center gap-2">
+          <div className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse"></div>
+          <span className="text-[10px] font-mono text-stone-500 uppercase tracking-widest">All systems operational</span>
+        </div>
       </div>
     </div>
   </footer>
 );
 
 /* ─── App ─── */
-const App: React.FC = () => (
-  <div className="min-h-screen bg-[#0e0d0c] flex flex-col font-sans text-stone-200">
-    <Header />
-    <main className="flex-1">
-      <Hero />
-      <DiagnosticsGrid />
-      <MaintenanceMatrix />
-      <TriageForm />
-    </main>
-    <Footer />
-    <DispatchBanner />
-  </div>
-);
+const App: React.FC = () => {
+  useEffect(() => {
+    const nodes = Array.from(document.querySelectorAll<HTMLElement>('.magnetic-primary'));
+    const radius = 50;
+    const maxShift = 5;
+    const onMove = (event: MouseEvent) => {
+      nodes.forEach((node) => {
+        const rect = node.getBoundingClientRect();
+        const cx = rect.left + rect.width / 2;
+        const cy = rect.top + rect.height / 2;
+        const dx = event.clientX - cx;
+        const dy = event.clientY - cy;
+        const distance = Math.hypot(dx, dy);
+        if (distance <= radius) {
+          const power = 1 - distance / radius;
+          node.style.setProperty('--mx', `${(dx / radius) * maxShift * power}px`);
+          node.style.setProperty('--my', `${(dy / radius) * maxShift * power}px`);
+          return;
+        }
+        node.style.setProperty('--mx', '0px');
+        node.style.setProperty('--my', '0px');
+      });
+    };
+    window.addEventListener('mousemove', onMove);
+    return () => window.removeEventListener('mousemove', onMove);
+  }, []);
+
+  return (
+    <div className="min-h-screen bg-axiom-base flex flex-col font-axiomSans text-axiom-text-main">
+      <Header />
+      <main className="flex-1">
+        <Hero />
+        <DiagnosticsGrid />
+        <MaintenanceMatrix />
+        <TriageForm />
+      </main>
+      <Footer />
+      <DispatchBanner />
+    </div>
+  );
+};
 
 export default App;
