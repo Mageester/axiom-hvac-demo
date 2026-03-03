@@ -14,26 +14,6 @@ export default {
         'axiom-accent': '#E4572E',
         'axiom-text-main': '#F5F7FA',
         'axiom-text-mute': '#A7B3BC',
-        surface: {
-          base: '#0e0d0c',
-          card: '#161514',
-          elevated: '#1c1b19',
-        },
-        frost: {
-          50: '#f0f9ff',
-          100: '#e0f2fe',
-          200: '#bae6fd',
-          300: '#7dd3fc',
-          400: '#38bdf8',
-          500: '#0ea5e9',
-          600: '#0284c7',
-        },
-        arctic: {
-          400: '#60a5fa',
-          500: '#3b82f6',
-          600: '#2563eb',
-        },
-        emergency: '#ef4444',
       },
       fontFamily: {
         axiomSans: ['Inter', 'Satoshi', 'sans-serif'],

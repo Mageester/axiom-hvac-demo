@@ -168,7 +168,7 @@ const DiagnosticsGrid: React.FC = () => (
             { id: 'CT-05', title: 'Controls & IoT', desc: 'Smart thermostat integration with building automation systems. Remote diagnostics capability.', metric: '24/7 Link' },
             { id: 'DT-06', title: 'Duct Engineering', desc: 'Manual J/D load calculations. Static pressure testing and leak sealing to <4% loss.', metric: '<4% Loss' },
           ].map((s, i) => (
-            <div key={i} className="axiom-bento p-6 group hover:bg-[#161514] transition-colors">
+            <div key={i} className="axiom-bento p-6 group hover:bg-axiom-surface transition-colors">
               <div className="flex justify-between items-start mb-4">
                 <span className="text-[9px] font-axiomMono text-axiom-text-mute uppercase tracking-widest">{s.id}</span>
                 <span className="text-[10px] font-axiomMono text-axiom-text-mute uppercase tracking-widest">{s.metric}</span>
@@ -607,7 +607,7 @@ const TriageForm: React.FC = () => {
                       </div>
                     </div>
                     <div className="p-6 border-t border-axiom-border">
-                      <button type="submit" className="magnetic-primary w-full bg-axiom-accent text-axiom-text-main min-h-[52px] text-[13px] font-bold uppercase tracking-widest hover:bg-[#f05f32] transition-colors">
+                      <button type="submit" className="magnetic-primary w-full bg-axiom-accent text-axiom-text-main min-h-[52px] text-[13px] font-bold uppercase tracking-widest hover:bg-axiom-accent/90 transition-colors">
                         {triage.urgency === 'emergency' ? 'Dispatch Emergency Technician' : 'Schedule Service Visit'}
                       </button>
                     </div>
