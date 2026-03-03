@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+﻿import React, { useEffect, useRef, useState } from 'react';
 
 /*
  HVAC  "The Clinical/Service Structure"
@@ -46,7 +46,7 @@ const Header: React.FC = () => (
       </nav>
 
       <div className="flex items-center gap-3">
-        <div className="hidden sm:flex items-center gap-2 border border-white/5 px-3 py-1.5 rounded-none">
+        <div className="hidden sm:flex items-center gap-2 border border-axiom-border px-3 py-1.5 rounded-none">
           <div className="w-1.5 h-1.5 bg-axiom-surface rounded-full animate-pulse"></div>
           <span className="text-[10px] font-axiomMono text-axiom-text-mute uppercase tracking-widest">Online</span>
         </div>
@@ -88,13 +88,13 @@ const Hero: React.FC = () => {
         style={{ backgroundImage: "url('/hero-industrial.png')", transform: 'translate3d(0,0,0) scale(1.08)' }}
       ></div>
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(9,10,11,0.3)_0%,rgba(9,10,11,0.74)_58%,rgba(9,10,11,0.95)_100%)]"></div>
-      <div className="absolute inset-0 bg-gradient-to-r from-black/72 via-black/56 to-black/38"></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-axiom-base/72 via-axiom-base/56 to-axiom-base/38"></div>
 
       <div className="axiom-shell-inner w-full relative z-10 axiom-shell-section">
         <div className="max-w-4xl">
           <p className="font-axiomMono text-axiom-text-mute text-[11px] uppercase tracking-[0.32em] mb-6">STATUS: DISPATCH INFRASTRUCTURE ACTIVE</p>
 
-          <h2 className="hero-headline hero-fade-in text-axiom-text-main mb-6">
+          <h2 className="hero-headline hero-fade-in font-bold text-axiom-text-main mb-6">
             Engineer premium HVAC demand into booked service calls.
           </h2>
 
@@ -109,19 +109,19 @@ const Hero: React.FC = () => {
             <a href="#numbers" className="text-axiom-text-main/85 text-[15px] inline-flex items-center gap-1 hover:text-axiom-text-main transition-colors">
               See the numbers <span aria-hidden>{'->'}</span>
             </a>
-            <a href="tel:+15195550199" className="border border-white/30 text-axiom-text-main px-8 min-h-[52px] flex items-center justify-center text-[13px] font-bold uppercase tracking-widest hover:border-axiom-accent/65 transition-colors">
+            <a href="tel:+15195550199" className="border border-axiom-border text-axiom-text-main px-8 min-h-[52px] flex items-center justify-center text-[13px] font-bold uppercase tracking-widest hover:border-axiom-border transition-colors">
               Call: (519) 555-0199
             </a>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 border border-white/15 bg-axiom-base backdrop-blur-sm">
+          <div className="grid grid-cols-2 md:grid-cols-4 border border-axiom-border bg-axiom-base backdrop-blur-sm">
             {[
               { label: 'Response Target', value: '<2 Hours' },
               { label: 'Dispatch Coverage', value: '24/7' },
               { label: 'Uptime', value: '99.99%' },
               { label: 'Lead Quality', value: 'Pre-Qualified' },
             ].map((item) => (
-              <div key={item.label} className="p-4 border-r border-b md:border-b-0 border-white/15 last:border-r-0">
+              <div key={item.label} className="p-4 border-r border-b md:border-b-0 border-axiom-border last:border-r-0">
                 <div className="font-axiomMono text-[22px] text-axiom-text-main leading-none">{item.value}</div>
                 <div className="font-axiomMono text-[10px] text-axiom-text-mute uppercase tracking-[0.2em] mt-2">{item.label}</div>
               </div>
@@ -164,7 +164,7 @@ const DiagnosticsGrid: React.FC = () => (
             { id: 'HX-01', title: 'Furnace Systems', desc: 'High-efficiency forced-air heating deployment. Variable-speed blower calibration and combustion analysis.', metric: '98% AFUE' },
             { id: 'CL-02', title: 'Cooling Infrastructure', desc: 'Precision-sized AC systems with zoned airflow mapping. SEER 21+ rated equipment standard.', metric: 'SEER 21+' },
             { id: 'VN-03', title: 'Ventilation', desc: 'ERV/HRV balanced ventilation. Indoor air quality monitoring with particulate filtration.', metric: 'MERV-16' },
- { id: 'HP-04', title: 'Heat Pumps', desc: 'Cold-climate heat pump deployment rated to -30°C. Ground-source and air-source configurations.', metric: 'COP 4.2' },
+ { id: 'HP-04', title: 'Heat Pumps', desc: 'Cold-climate heat pump deployment rated to -30Â°C. Ground-source and air-source configurations.', metric: 'COP 4.2' },
             { id: 'CT-05', title: 'Controls & IoT', desc: 'Smart thermostat integration with building automation systems. Remote diagnostics capability.', metric: '24/7 Link' },
             { id: 'DT-06', title: 'Duct Engineering', desc: 'Manual J/D load calculations. Static pressure testing and leak sealing to <4% loss.', metric: '<4% Loss' },
           ].map((s, i) => (
@@ -350,12 +350,12 @@ const MaintenanceMatrix: React.FC = () => {
           <div className="col-span-12 md:col-span-9">
             <div className="axiom-glass overflow-hidden">
               {/* Header row */}
-              <div className="grid grid-cols-5 bg-[#111110]">
-                <div className="p-4 border-r border-white/5">
+              <div className="grid grid-cols-5 bg-axiom-elevated">
+                <div className="p-4 border-r border-axiom-border">
                   <span className="text-[10px] font-axiomMono text-axiom-text-mute uppercase tracking-widest">Service Item</span>
                 </div>
                 {seasons.map(s => (
-                  <div key={s} className="p-4 text-center border-r border-white/5 last:border-r-0">
+                  <div key={s} className="p-4 text-center border-r border-axiom-border last:border-r-0">
                     <span className="text-[10px] font-axiomMono text-axiom-text-mute uppercase tracking-widest">{s}</span>
                   </div>
                 ))}
@@ -363,18 +363,18 @@ const MaintenanceMatrix: React.FC = () => {
 
               {/* Data rows */}
               {tasks.map((task, i) => (
-                <div key={i} className="grid grid-cols-5 border-t border-white/5 hover:bg-[#111110] transition-colors">
-                  <div className="p-4 border-r border-white/5 flex items-center">
+                <div key={i} className="grid grid-cols-5 border-t border-axiom-border hover:bg-axiom-elevated transition-colors">
+                  <div className="p-4 border-r border-axiom-border flex items-center">
                     <span className="text-[13px] text-axiom-text-mute">{task.name}</span>
                   </div>
                   {[task.spring, task.summer, task.fall, task.winter].map((active, j) => (
-                    <div key={j} className="p-4 flex items-center justify-center border-r border-white/5 last:border-r-0">
+                    <div key={j} className="p-4 flex items-center justify-center border-r border-axiom-border last:border-r-0">
                       {active ? (
                         <div className="w-3 h-3 bg-axiom-surface border border-axiom-border flex items-center justify-center">
                           <div className="w-1.5 h-1.5 bg-axiom-surface"></div>
                         </div>
                       ) : (
-                        <div className="w-3 h-3 border border-white/10"></div>
+                        <div className="w-3 h-3 border border-axiom-border"></div>
                       )}
                     </div>
                   ))}
@@ -493,7 +493,7 @@ const TriageForm: React.FC = () => {
  const ageOptions = ['Under 5 years', '5-10 years', 'Over 10 years', 'Unknown'];
 
   const OptionButton = ({ label, selected, onClick }: { label: string; selected: boolean; onClick: () => void }) => (
-    <button type="button" onClick={onClick} className={`w-full text-left p-4 border transition-colors min-h-[52px] text-[14px] font-medium ${selected ? 'border-axiom-border bg-axiom-surface text-axiom-text-main' : 'border-white/5 bg-[#0e0d0c] text-axiom-text-mute hover:border-white/15'
+    <button type="button" onClick={onClick} className={`w-full text-left p-4 border transition-colors min-h-[52px] text-[14px] font-medium ${selected ? 'border-axiom-border bg-axiom-surface text-axiom-text-main' : 'border-axiom-border bg-axiom-elevated text-axiom-text-mute hover:border-axiom-border'
       }`}>{label}</button>
   );
 
@@ -571,13 +571,13 @@ const TriageForm: React.FC = () => {
                     <p className="text-[10px] font-axiomMono text-axiom-text-mute uppercase tracking-widest mb-2">How urgent is this?</p>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                       <button type="button" onClick={() => { setTriage({ ...triage, urgency: 'emergency' }); setTimeout(() => setStep(4), 200); }}
-                        className={`w-full text-left p-5 border transition-colors min-h-[52px] ${triage.urgency === 'emergency' ? 'border-axiom-border bg-axiom-surface text-axiom-text-main' : 'border-white/5 bg-[#0e0d0c] text-axiom-text-mute hover:border-axiom-border'
+                        className={`w-full text-left p-5 border transition-colors min-h-[52px] ${triage.urgency === 'emergency' ? 'border-axiom-border bg-axiom-surface text-axiom-text-main' : 'border-axiom-border bg-axiom-elevated text-axiom-text-mute hover:border-axiom-border'
                           }`}>
                         <span className="block text-[14px] font-semibold"> Emergency Dispatch Required</span>
                         <span className="block text-[12px] text-axiom-text-mute mt-1">Technician dispatched within 2 hours</span>
                       </button>
                       <button type="button" onClick={() => { setTriage({ ...triage, urgency: 'maintenance' }); setTimeout(() => setStep(4), 200); }}
-                        className={`w-full text-left p-5 border transition-colors min-h-[52px] ${triage.urgency === 'maintenance' ? 'border-axiom-border bg-axiom-surface text-axiom-text-main' : 'border-white/5 bg-[#0e0d0c] text-axiom-text-mute hover:border-white/15'
+                        className={`w-full text-left p-5 border transition-colors min-h-[52px] ${triage.urgency === 'maintenance' ? 'border-axiom-border bg-axiom-surface text-axiom-text-main' : 'border-axiom-border bg-axiom-elevated text-axiom-text-mute hover:border-axiom-border'
                           }`}>
                         <span className="block text-[14px] font-semibold"> Schedule Maintenance</span>
                         <span className="block text-[12px] text-axiom-text-mute mt-1">Next available slot, usually within 48 hours</span>
@@ -592,21 +592,21 @@ const TriageForm: React.FC = () => {
                     <div className="p-6 flex flex-col gap-4">
                       <p className="text-[10px] font-axiomMono text-axiom-text-mute uppercase tracking-widest mb-2">Your Contact Details</p>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-[1px] bg-white/5">
-                        <div className="p-4 bg-[#111110]">
+                        <div className="p-4 bg-axiom-elevated">
                           <label className="text-[10px] font-axiomMono text-axiom-text-mute uppercase tracking-widest block mb-2">Full Name</label>
-                          <input type="text" required value={triage.name} onChange={(e) => setTriage({ ...triage, name: e.target.value })} className="w-full bg-transparent border-b border-white/10 py-3 min-h-[48px] text-axiom-text-main text-[15px] focus:border-axiom-border outline-none transition-colors" />
+                          <input type="text" required value={triage.name} onChange={(e) => setTriage({ ...triage, name: e.target.value })} className="w-full bg-transparent border-b border-axiom-border py-3 min-h-[48px] text-axiom-text-main text-[15px] focus:border-axiom-border outline-none transition-colors" />
                         </div>
-                        <div className="p-4 bg-[#111110]">
+                        <div className="p-4 bg-axiom-elevated">
                           <label className="text-[10px] font-axiomMono text-axiom-text-mute uppercase tracking-widest block mb-2">Phone</label>
-                          <input type="tel" required value={triage.phone} onChange={(e) => setTriage({ ...triage, phone: e.target.value })} className="w-full bg-transparent border-b border-white/10 py-3 min-h-[48px] text-axiom-text-main text-[15px] focus:border-axiom-border outline-none transition-colors" />
+                          <input type="tel" required value={triage.phone} onChange={(e) => setTriage({ ...triage, phone: e.target.value })} className="w-full bg-transparent border-b border-axiom-border py-3 min-h-[48px] text-axiom-text-main text-[15px] focus:border-axiom-border outline-none transition-colors" />
                         </div>
                       </div>
-                      <div className="p-4 bg-[#0e0d0c] border border-white/5">
+                      <div className="p-4 bg-axiom-elevated border border-axiom-border">
                         <label className="text-[10px] font-axiomMono text-axiom-text-mute uppercase tracking-widest block mb-2">Service Address</label>
-                        <input type="text" required value={triage.address} onChange={(e) => setTriage({ ...triage, address: e.target.value })} className="w-full bg-transparent border-b border-white/10 py-3 min-h-[48px] text-axiom-text-main text-[15px] focus:border-axiom-border outline-none transition-colors" />
+                        <input type="text" required value={triage.address} onChange={(e) => setTriage({ ...triage, address: e.target.value })} className="w-full bg-transparent border-b border-axiom-border py-3 min-h-[48px] text-axiom-text-main text-[15px] focus:border-axiom-border outline-none transition-colors" />
                       </div>
                     </div>
-                    <div className="p-6 border-t border-white/5">
+                    <div className="p-6 border-t border-axiom-border">
                       <button type="submit" className="magnetic-primary w-full bg-axiom-accent text-axiom-text-main min-h-[52px] text-[13px] font-bold uppercase tracking-widest hover:bg-[#f05f32] transition-colors">
                         {triage.urgency === 'emergency' ? 'Dispatch Emergency Technician' : 'Schedule Service Visit'}
                       </button>
@@ -638,9 +638,9 @@ const Footer: React.FC = () => (
       {/* Trust Badges */}
       <div className="grid md:grid-cols-3 gap-4">
         {[
-          { badge: 'TSSA Certified', icon: '�' },
- { badge: 'WSIB Insured', icon: '�' },
-          { badge: '24/7 Dispatch', icon: '�' },
+          { badge: 'TSSA Certified', icon: 'ï¿½' },
+ { badge: 'WSIB Insured', icon: 'ï¿½' },
+          { badge: '24/7 Dispatch', icon: 'ï¿½' },
         ].map((item) => (
           <div key={item.badge} className="axiom-bento flex items-center gap-2 px-4 py-2">
             <span className="text-[12px]">{item.icon}</span>
@@ -655,7 +655,7 @@ const Footer: React.FC = () => (
           <span>Apex Climate Systems</span>
           <span>LIC# 8492021</span>
           <a href="tel:+15195550199" className="hover:text-axiom-text-mute transition-colors min-h-[48px] inline-flex items-center">(519) 555-0199</a>
- <span>© {new Date().getFullYear()}</span>
+ <span>Â© {new Date().getFullYear()}</span>
         </div>
         <div className="axiom-bento flex items-center gap-6 text-[10px] font-axiomMono text-axiom-text-mute uppercase tracking-widest">
           <a href="#" className="hover:text-axiom-text-main transition-colors min-h-[48px] inline-flex items-center">Privacy Policy</a>
@@ -746,7 +746,7 @@ const App: React.FC = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-axiom-base flex flex-col font-axiomSans text-axiom-text-main">
+    <div className="min-h-screen bg-axiom-base axiom-grain flex flex-col font-axiomSans text-axiom-text-main">
       <Header />
       <main className="flex-1">
         <Hero />
@@ -762,5 +762,6 @@ const App: React.FC = () => {
 };
 
 export default App;
+
 
 
