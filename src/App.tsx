@@ -60,6 +60,10 @@ const Hero: React.FC = () => {
   const heroBgRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      return;
+    }
+
     let ticking = false;
     const onScroll = () => {
       if (ticking) return;
@@ -670,6 +674,14 @@ const Footer: React.FC = () => (
 const App: React.FC = () => {
   useEffect(() => {
     const nodes = Array.from(document.querySelectorAll<HTMLElement>('.magnetic-primary'));
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      nodes.forEach((node) => {
+        node.style.setProperty('--mx', '0px');
+        node.style.setProperty('--my', '0px');
+      });
+      return;
+    }
+
     const radius = 50;
     const maxShift = 5;
     const onMove = (event: MouseEvent) => {
@@ -690,11 +702,36 @@ const App: React.FC = () => {
         node.style.setProperty('--my', '0px');
       });
     };
+    const reset = () => {
+      nodes.forEach((node) => {
+        node.style.setProperty('--mx', '0px');
+        node.style.setProperty('--my', '0px');
+      });
+    };
+
     window.addEventListener('mousemove', onMove);
-    return () => window.removeEventListener('mousemove', onMove);
+    window.addEventListener('mouseleave', reset);
+    return () => {
+      window.removeEventListener('mousemove', onMove);
+      window.removeEventListener('mouseleave', reset);
+    };
   }, []);
 
   useEffect(() => {
+    document.querySelectorAll<HTMLElement>('section h2, section h3, section .axiom-reading-measure').forEach((el) => {
+      el.classList.add('reveal');
+    });
+
+    const targets = Array.from(document.querySelectorAll<HTMLElement>('.axiom-bento, .reveal'));
+    targets.forEach((el, index) => {
+      el.style.setProperty('--reveal-delay', `${(index % 6) * 100}ms`);
+    });
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      targets.forEach((el) => el.classList.add('is-visible'));
+      return;
+    }
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -702,8 +739,9 @@ const App: React.FC = () => {
           observer.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.2 });
-    document.querySelectorAll('.axiom-bento').forEach((el) => observer.observe(el));
+    }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
+
+    targets.forEach((el) => observer.observe(el));
     return () => observer.disconnect();
   }, []);
 

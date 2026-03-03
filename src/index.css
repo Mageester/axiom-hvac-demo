@@ -74,7 +74,7 @@
     --mx: 0px;
     --my: 0px;
     transform: translate(var(--mx), var(--my)) scale(1);
-    transition: transform 180ms ease, box-shadow 220ms ease, background-color 180ms ease;
+    transition: transform 0.3s ease-out, box-shadow 0.4s ease-out, background-color 0.3s ease-out;
     will-change: transform;
   }
 
@@ -162,10 +162,45 @@ select:focus {
   border-color: #E4572E;
 }
 
+input,
+textarea,
+select {
+  transition: border-color 0.3s ease-out, box-shadow 0.3s ease-out, background-color 0.3s ease-out;
+}
+
+input[type='range']::-webkit-slider-thumb {
+  transition: box-shadow 0.3s ease-out, transform 0.3s ease-out;
+}
+
+input[type='range']::-moz-range-thumb {
+  transition: box-shadow 0.3s ease-out, transform 0.3s ease-out;
+}
+
+input[type='range']:focus::-webkit-slider-thumb {
+  box-shadow: 0 0 0 2px rgba(228, 87, 46, 0.28), 0 0 16px rgba(228, 87, 46, 0.24);
+  transform: scale(1.04);
+}
+
+input[type='range']:focus::-moz-range-thumb {
+  box-shadow: 0 0 0 2px rgba(228, 87, 46, 0.28), 0 0 16px rgba(228, 87, 46, 0.24);
+  transform: scale(1.04);
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.4s ease-out var(--reveal-delay, 0ms), transform 0.4s ease-out var(--reveal-delay, 0ms);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .axiom-bento {
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+  transition: opacity 0.4s ease-out var(--reveal-delay, 0ms), transform 0.4s ease-out var(--reveal-delay, 0ms);
 }
 
 .axiom-bento.is-visible {
@@ -181,6 +216,35 @@ select:focus {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .magnetic-primary,
+  .hero-primary-cta {
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .hero-fade-in,
+  .reveal,
+  .axiom-bento {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+    transition: none !important;
+  }
+
+  input,
+  textarea,
+  select,
+  input[type='range']::-webkit-slider-thumb,
+  input[type='range']::-moz-range-thumb {
+    transition: none !important;
   }
 }
 
