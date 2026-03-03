@@ -92,7 +92,7 @@ const Hero: React.FC = () => {
 
       <div className="axiom-shell-inner w-full relative z-10 axiom-shell-section">
         <div className="max-w-4xl">
-          <p className="font-axiomMono text-axiom-text-mute text-[11px] uppercase tracking-[0.32em] mb-6">STATUS: DISPATCH INFRASTRUCTURE ACTIVE</p>
+          <p className="font-axiomMono text-axiom-text-mute text-[11px] uppercase tracking-[0.32em] mb-6">OPERATOR HEADER: EMERGENCY DISPATCH + DIAGNOSTICS + UPTIME CONTROL</p>
 
           <h2 className="hero-headline hero-fade-in font-bold text-axiom-text-main mb-6">
             Engineer premium HVAC demand into booked service calls.
@@ -114,16 +114,18 @@ const Hero: React.FC = () => {
             </a>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 border border-axiom-border bg-axiom-base backdrop-blur-sm">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-3xl">
             {[
-              { label: 'Response Target', value: '<2 Hours' },
-              { label: 'Dispatch Coverage', value: '24/7' },
-              { label: 'Uptime', value: '99.99%' },
-              { label: 'Lead Quality', value: 'Pre-Qualified' },
+              { label: 'Dispatch SLA', value: '< 2 Hour Callback', icon: '•' },
+              { label: 'Diagnostic Routing', value: 'Pre-Qualified Intake', icon: '•' },
+              { label: 'Coverage Window', value: '24/7 Emergency Readiness', icon: '•' },
             ].map((item) => (
-              <div key={item.label} className="p-4 border-r border-b md:border-b-0 border-axiom-border last:border-r-0">
-                <div className="font-axiomMono text-[22px] text-axiom-text-main leading-none">{item.value}</div>
-                <div className="font-axiomMono text-[10px] text-axiom-text-mute uppercase tracking-[0.2em] mt-2">{item.label}</div>
+              <div key={item.label} className="axiom-bento-card p-4 bg-axiom-base/90 border border-axiom-border">
+                <p className="font-axiomMono text-[11px] uppercase tracking-[0.14em] text-axiom-text-mute flex items-center gap-2">
+                  <span className="text-axiom-accent">{item.icon}</span>
+                  {item.label}
+                </p>
+                <p className="font-axiomMono text-[15px] text-axiom-text-main mt-2 tabular-nums">{item.value}</p>
               </div>
             ))}
           </div>
@@ -183,7 +185,52 @@ const DiagnosticsGrid: React.FC = () => (
   </section>
 );
 
-/*  Maintenance Schedule Matrix (UNIQUE COMPONENT)  */
+/*  Dispatch Readiness Module (UNIQUE COMPONENT)  */
+const DispatchReadiness: React.FC = () => (
+  <section id="systems" className="axiom-shell-section axiom-grain border-t border-axiom-border">
+    <div className="axiom-shell-inner">
+      <div className="axiom-bento terminal-grid bg-axiom-surface p-6 md:p-8">
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-6">
+          <div>
+            <p className="font-axiomMono text-[11px] uppercase tracking-[0.2em] text-axiom-text-mute">Dispatch Readiness</p>
+            <h3 className="text-[26px] md:text-[32px] font-semibold tracking-tight text-axiom-text-main mt-2">System Diagnostic Matrix</h3>
+          </div>
+          <p className="text-[13px] text-axiom-text-mute max-w-[560px]">
+            Keep response speed predictable during heat waves and cold snaps with a pre-flight checklist for routing, parts, and technician coverage.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+          {[
+            {
+              step: '01',
+              title: 'Failure Mode Classification',
+              summary: 'No-cool, no-heat, airflow, and water-leak requests are triaged before dispatch.',
+            },
+            {
+              step: '02',
+              title: 'Crew + Parts Alignment',
+              summary: 'Qualified calls are matched to technician skillset and probable parts inventory.',
+            },
+            {
+              step: '03',
+              title: 'Dispatch Confirmation',
+              summary: 'Route confirmation, ETA, and customer prep notes are issued in one sequence.',
+            },
+          ].map((item) => (
+            <div key={item.step} className="axiom-bento-card p-5 bg-axiom-elevated/95">
+              <p className="font-axiomMono text-[11px] uppercase tracking-[0.14em] text-axiom-text-mute">{item.step}</p>
+              <h4 className="text-[16px] font-semibold tracking-tight text-axiom-text-main mt-2">{item.title}</h4>
+              <p className="text-[13px] text-axiom-text-mute leading-relaxed mt-2">{item.summary}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
+/*  ROI Terminal  */
 const ROITerminal: React.FC = () => {
   const [lostCalls, setLostCalls] = useState(2);
   const [displayValue, setDisplayValue] = useState(120000);
@@ -396,10 +443,12 @@ const MaintenanceMatrix: React.FC = () => {
                     'Emergency funnel designed for fast mobile actions',
                     'Instrumentation for calls, forms, and qualified leads',
                   ],
+                  boundary: 'Not included: multi-location rollout or custom workflow integrations.',
+                  cta: '#deploy',
                 },
                 {
-                  name: "Contractor's Choice",
-                  price: '$12,500',
+                  name: 'Authority',
+                  price: '$12,500+',
                   featured: true,
                   summary: 'Most selected by teams scaling install volume and service agreements.',
                   qualifier: 'Best for teams of 10+ targeting premium ticket mix.',
@@ -409,11 +458,12 @@ const MaintenanceMatrix: React.FC = () => {
                     'High-ticket offer framing across replacement services',
                     'Launch support through first campaign and dispatch cycle',
                   ],
+                  boundary: 'Not included: enterprise back-office custom integrations.',
+                  cta: '#deploy',
                 },
                 {
-                  name: 'Elite Command',
-                  price: '$18,500+',
-                  elite: true,
+                  name: 'Multi-Location / Expansion',
+                  price: 'Custom',
                   summary: 'Bespoke multi-location architecture for expanding HVAC groups.',
                   qualifier: 'Best for operators running multiple crews and territories.',
                   technical: 'custom stack // workflow mapping // executive reporting',
@@ -422,21 +472,19 @@ const MaintenanceMatrix: React.FC = () => {
                     'Market expansion templates with local proof blocks',
                     'Quarterly optimization and instrumentation reviews',
                   ],
+                  boundary: 'Not included: fixed scope before discovery and technical mapping.',
+                  cta: '#deploy',
                 },
               ].map((plan) => (
                 <article
                   key={plan.name}
-                  className={`axiom-bento bg-axiom-surface border border-axiom-border p-6 sm:p-8 flex flex-col gap-5 ${plan.featured ? 'border-t-2 border-t-axiom-accent' : ''} ${plan.elite ? 'ring-1 ring-axiom-accent/50' : ''}`}
+                  className={`axiom-bento bg-axiom-surface border border-axiom-border p-6 sm:p-8 flex flex-col gap-5 ${plan.featured ? 'border-t-2 border-t-axiom-accent' : ''}`}
                 >
                   <div className="flex items-center justify-between gap-3">
                     <h3 className="font-axiomSans text-[24px] font-semibold tracking-tight text-axiom-text-main">{plan.name}</h3>
                     {plan.featured ? (
                       <span className="font-axiomMono text-[10px] uppercase tracking-[0.14em] text-axiom-accent border border-axiom-accent/40 px-2 py-1 rounded">
                         Contractor's Choice
-                      </span>
-                    ) : plan.elite ? (
-                      <span className="font-axiomMono text-[10px] uppercase tracking-[0.14em] text-axiom-accent border border-axiom-accent/50 px-2 py-1 rounded">
-                        Elite Package
                       </span>
                     ) : null}
                   </div>
@@ -459,6 +507,10 @@ const MaintenanceMatrix: React.FC = () => {
                   </ul>
 
                   <p className="font-axiomSans text-[12px] text-axiom-text-mute">{plan.qualifier}</p>
+                  <p className="font-axiomSans text-[12px] text-axiom-text-mute/90 border-t border-axiom-border pt-3">{plan.boundary}</p>
+                  <a href={plan.cta} className="magnetic-primary inline-flex items-center justify-center min-h-[48px] px-6 bg-axiom-accent text-axiom-text-main text-[12px] font-bold uppercase tracking-widest">
+                    {plan.name === 'Multi-Location / Expansion' ? 'Request Expansion Scope' : `Apply for ${plan.name}`}
+                  </a>
                 </article>
               ))}
             </div>
@@ -751,6 +803,7 @@ const App: React.FC = () => {
       <main className="flex-1">
         <Hero />
         <DiagnosticsGrid />
+        <DispatchReadiness />
         <ROITerminal />
         <MaintenanceMatrix />
         <TriageForm />
