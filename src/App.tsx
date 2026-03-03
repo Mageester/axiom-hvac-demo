@@ -17,7 +17,7 @@ const DispatchBanner: React.FC = () => (
         </span>
         <span className="text-axiom-text-main text-[13px] font-bold uppercase tracking-wider">24/7 Emergency Dispatch Active</span>
       </div>
-      <a href="tel:+15195550199" className="magnetic-primary bg-axiom-text-main text-axiom-base px-6 min-h-[48px] flex items-center text-[12px] font-bold uppercase tracking-widest hover:bg-white transition-colors rounded-sm">
+      <a href="tel:+15195550199" className="btn-secondary btn-md whitespace-nowrap">
         Call Now: (519) 555-0199
       </a>
     </div>
@@ -103,13 +103,13 @@ const Hero: React.FC = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-3 mb-10">
-            <a href="#deploy" className="magnetic-primary hero-primary-cta bg-axiom-accent text-axiom-text-main px-8 min-h-[52px] flex items-center justify-center text-[13px] font-bold uppercase tracking-widest transition-colors">
+            <a href="#deploy" className="btn-primary btn-lg magnetic-primary hero-primary-cta">
               Request Emergency Triage
             </a>
             <a href="#numbers" className="text-axiom-text-main/85 text-[15px] inline-flex items-center gap-1 hover:text-axiom-text-main transition-colors">
               See the numbers <span aria-hidden>{'->'}</span>
             </a>
-            <a href="tel:+15195550199" className="border border-axiom-border text-axiom-text-main px-8 min-h-[52px] flex items-center justify-center text-[13px] font-bold uppercase tracking-widest hover:border-axiom-border transition-colors">
+            <a href="tel:+15195550199" className="btn-secondary btn-lg">
               Call: (519) 555-0199
             </a>
           </div>
@@ -508,7 +508,7 @@ const MaintenanceMatrix: React.FC = () => {
 
                   <p className="font-axiomSans text-[12px] text-axiom-text-mute">{plan.qualifier}</p>
                   <p className="font-axiomSans text-[12px] text-axiom-text-mute/90 border-t border-axiom-border pt-3">{plan.boundary}</p>
-                  <a href={plan.cta} className="magnetic-primary inline-flex items-center justify-center min-h-[48px] px-6 bg-axiom-accent text-axiom-text-main text-[12px] font-bold uppercase tracking-widest">
+                  <a href={plan.cta} className="btn-primary btn-md magnetic-primary w-full">
                     {plan.name === 'Multi-Location / Expansion' ? 'Request Expansion Scope' : `Apply for ${plan.name}`}
                   </a>
                 </article>
@@ -659,7 +659,7 @@ const TriageForm: React.FC = () => {
                       </div>
                     </div>
                     <div className="p-6 border-t border-axiom-border">
-                      <button type="submit" className="magnetic-primary w-full bg-axiom-accent text-axiom-text-main min-h-[52px] text-[13px] font-bold uppercase tracking-widest hover:bg-axiom-accent/90 transition-colors">
+                      <button type="submit" className="btn-primary btn-lg magnetic-primary w-full">
                         {triage.urgency === 'emergency' ? 'Dispatch Emergency Technician' : 'Schedule Service Visit'}
                       </button>
                     </div>
