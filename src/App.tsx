@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 
-/* ═══════════════════════════════════════════════════════════════════
-   HVAC — "The Clinical/Service Structure"
+/* Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â
+   HVAC Ã¢â‚¬â€ "The Clinical/Service Structure"
    Layout: Tech-forward, rigid symmetrical grids, split-screen hero
    Unique: Sticky dispatch banner, Maintenance Schedule Matrix
-   ═══════════════════════════════════════════════════════════════════ */
+   Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â */
 
-/* ─── Sticky Emergency Dispatch Banner ─── */
+/* Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ Sticky Emergency Dispatch Banner Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
 const DispatchBanner: React.FC = () => (
   <div className="fixed bottom-0 left-0 right-0 z-50 bg-axiom-accent border-t border-axiom-border">
     <div className="axiom-shell-inner px-6 md:px-10 xl:px-20 h-14 flex items-center justify-between">
@@ -24,7 +24,7 @@ const DispatchBanner: React.FC = () => (
   </div>
 );
 
-/* ─── Header ─── */
+/* Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ Header Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
 const Header: React.FC = () => (
   <header className="fixed top-4 left-0 right-0 z-40 px-6 md:px-10 xl:px-20">
     <div className="axiom-glass axiom-shell-inner border-b border-axiom-border h-16 flex items-center justify-between px-6">
@@ -55,10 +55,11 @@ const Header: React.FC = () => (
   </header>
 );
 
-/* ─── Split-Screen Hero ─── */
+/* Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ Split-Screen Hero Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
 const Hero: React.FC = () => (
   <section className="min-h-[85vh] flex items-center relative overflow-hidden axiom-grain">
     <div className="absolute inset-0 bg-gradient-to-r from-[#0e0d0c] via-[#0e0d0c] to-cyan-950/20"></div>
+    <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(9,10,11,0.2)_0%,rgba(9,10,11,0.78)_80%,rgba(9,10,11,0.92)_100%)]"></div>
 
     <div className="axiom-shell-inner w-full relative z-10 axiom-shell-section">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -69,25 +70,28 @@ const Hero: React.FC = () => (
             <span className="text-[11px] font-mono text-cyan-400/70 uppercase tracking-[0.3em]">Climate Infrastructure</span>
           </div>
 
-          <h2 className="text-[clamp(2.2rem,5vw,3.5rem)] font-bold text-white leading-[1.08] tracking-tight mb-6">
+          <h2 className="hero-headline hero-fade-in font-bold text-white mb-6">
             Precision Climate<br />
             <span className="text-cyan-400">Systems Engineering.</span>
           </h2>
 
-          <p className="text-[16px] text-stone-400 mb-6 max-w-md leading-relaxed">
+          <p className="hero-subheading hero-fade-in text-stone-300 mb-6 max-w-md">
             We deploy, calibrate, and maintain commercial-grade HVAC infrastructure with sub-2-hour emergency response across Ontario.
           </p>
 
           {/* Grit Scenario */}
           <div className="bg-red-600/10 border border-red-500/20 rounded-sm p-4 mb-8 max-w-md">
             <p className="text-[14px] text-red-300/90 leading-relaxed font-medium">
-              When it's 35°C and your AC dies at 2&nbsp;AM, you don't need a contact form. You need a technician dispatched in under two hours.
+              When it's 35Ã‚Â°C and your AC dies at 2&nbsp;AM, you don't need a contact form. You need a technician dispatched in under two hours.
             </p>
           </div>
 
           <div className="flex flex-col sm:flex-row gap-3">
             <a href="#deploy" className="magnetic-primary bg-axiom-accent text-axiom-text-main px-8 min-h-[52px] flex items-center justify-center text-[13px] font-bold uppercase tracking-widest hover:bg-[#f05f32] transition-colors">
               Request Emergency Triage
+            </a>
+            <a href="#numbers" className="text-axiom-text-main/80 text-[14px] inline-flex items-center gap-1 hover:text-white transition-colors">
+              See the numbers <span aria-hidden>{'->'}</span>
             </a>
             <a href="tel:+15195550199" className="border border-red-500/30 text-red-300 px-8 min-h-[52px] flex items-center justify-center text-[13px] font-bold uppercase tracking-widest hover:border-red-400/50 transition-colors">
               Call: (519) 555-0199
@@ -105,8 +109,8 @@ const Hero: React.FC = () => (
 
             <div className="grid grid-cols-2 gap-4 mb-6">
               {[
-                { label: 'Supply Temp', value: '72°F', status: 'optimal' },
-                { label: 'Return Temp', value: '68°F', status: 'optimal' },
+                { label: 'Supply Temp', value: '72Ã‚Â°F', status: 'optimal' },
+                { label: 'Return Temp', value: '68Ã‚Â°F', status: 'optimal' },
                 { label: 'Airflow CFM', value: '1,200', status: 'optimal' },
                 { label: 'Humidity', value: '45%', status: 'optimal' },
               ].map((m, i) => (
@@ -138,7 +142,7 @@ const Hero: React.FC = () => (
   </section>
 );
 
-/* ─── System Diagnostics Grid ─── */
+/* Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ System Diagnostics Grid Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
 const DiagnosticsGrid: React.FC = () => (
   <section id="diagnostics" className="axiom-shell-section axiom-grain border-t border-axiom-border">
     <div className="axiom-shell-inner">
@@ -155,13 +159,13 @@ const DiagnosticsGrid: React.FC = () => (
           </div>
         </div>
 
-        {/* Service cards — rigid 3-column grid */}
+        {/* Service cards Ã¢â‚¬â€ rigid 3-column grid */}
         <div className="col-span-12 md:col-span-9 grid grid-cols-1 sm:grid-cols-3 gap-[1px] bg-white/5">
           {[
             { id: 'HX-01', title: 'Furnace Systems', desc: 'High-efficiency forced-air heating deployment. Variable-speed blower calibration and combustion analysis.', metric: '98% AFUE' },
             { id: 'CL-02', title: 'Cooling Infrastructure', desc: 'Precision-sized AC systems with zoned airflow mapping. SEER 21+ rated equipment standard.', metric: 'SEER 21+' },
             { id: 'VN-03', title: 'Ventilation', desc: 'ERV/HRV balanced ventilation. Indoor air quality monitoring with particulate filtration.', metric: 'MERV-16' },
-            { id: 'HP-04', title: 'Heat Pumps', desc: 'Cold-climate heat pump deployment rated to -30°C. Ground-source and air-source configurations.', metric: 'COP 4.2' },
+            { id: 'HP-04', title: 'Heat Pumps', desc: 'Cold-climate heat pump deployment rated to -30Ã‚Â°C. Ground-source and air-source configurations.', metric: 'COP 4.2' },
             { id: 'CT-05', title: 'Controls & IoT', desc: 'Smart thermostat integration with building automation systems. Remote diagnostics capability.', metric: '24/7 Link' },
             { id: 'DT-06', title: 'Duct Engineering', desc: 'Manual J/D load calculations. Static pressure testing and leak sealing to <4% loss.', metric: '<4% Loss' },
           ].map((s, i) => (
@@ -180,7 +184,46 @@ const DiagnosticsGrid: React.FC = () => (
   </section>
 );
 
-/* ─── Maintenance Schedule Matrix (UNIQUE COMPONENT) ─── */
+/* Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ Maintenance Schedule Matrix (UNIQUE COMPONENT) Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
+const ROITerminal: React.FC = () => {
+  const [lostCalls, setLostCalls] = useState(2);
+  const [displayValue, setDisplayValue] = useState(120000);
+  const annualLeak = lostCalls * 5000 * 12;
+
+  useEffect(() => {
+    const start = displayValue;
+    const delta = annualLeak - start;
+    const startTime = performance.now();
+    let raf = 0;
+    const animate = (now: number) => {
+      const progress = Math.min((now - startTime) / 450, 1);
+      setDisplayValue(Math.round(start + delta * progress));
+      if (progress < 1) raf = requestAnimationFrame(animate);
+    };
+    raf = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(raf);
+  }, [annualLeak]);
+
+  return (
+    <section id="numbers" className="axiom-shell-section axiom-grain border-t border-axiom-border">
+      <div className="axiom-shell-inner max-w-5xl">
+        <div className="axiom-glass terminal-grid p-8 md:p-10">
+          <p className="font-axiomMono text-axiom-text-mute text-[11px] uppercase tracking-[0.2em] mb-4">ROI TERMINAL</p>
+          <h3 className="hero-headline text-[40px] mb-3">The $120k Dashboard</h3>
+          <div className="axiom-bento is-visible p-6 md:p-8">
+            <div className="flex justify-between items-center mb-3">
+              <label htmlFor="hvac-roi" className="font-axiomMono text-axiom-text-mute">Lost Dispatch Calls / Month</label>
+              <span className="font-axiomMono text-[28px]">{lostCalls}</span>
+            </div>
+            <input id="hvac-roi" type="range" min="1" max="8" value={lostCalls} onChange={(e) => setLostCalls(Number(e.target.value))} className="w-full accent-[#E4572E]" />
+            <p className="font-axiomMono text-[30px] mt-6 text-axiom-accent">${displayValue.toLocaleString()}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
 const MaintenanceMatrix: React.FC = () => {
   const seasons = ['Spring', 'Summer', 'Fall', 'Winter'];
   const tasks = [
@@ -247,14 +290,14 @@ const MaintenanceMatrix: React.FC = () => {
             {/* Plan CTAs */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-[1px] mt-[1px] bg-white/5">
               {[
-                { name: 'Essential', price: '$149/season', includes: '2 visits/year' },
-                { name: 'Precision', price: '$299/season', includes: '4 visits/year' },
-                { name: 'Enterprise', price: '$599/season', includes: 'Unlimited + Priority' },
+                { name: 'Foundation', price: '$7,500+', includes: 'High-ticket launch stack' },
+                { name: "Contractor's Choice", price: '$7,500+', includes: 'Most selected for growth teams', featured: true },
+                { name: 'Authority', price: '$7,500+', includes: 'Multi-location expansion stack' },
               ].map((plan, i) => (
-                <div key={i} className={`axiom-bento p-6 ${i === 2 ? 'bg-cyan-400/5 border-cyan-400/10' : ''}`}>
-                  <div className="text-[10px] font-mono text-stone-600 uppercase tracking-widest mb-1">{plan.name}</div>
-                  <div className="text-[22px] font-bold text-white tracking-tight mb-1">{plan.price}</div>
-                  <div className="text-[11px] text-stone-500">{plan.includes}</div>
+                <div key={i} className={`axiom-bento p-6 ${plan.featured ? 'border-t-2 border-t-axiom-accent' : ''}`}>
+                  <div className="text-[10px] font-mono text-axiom-text-mute uppercase tracking-widest mb-1">{plan.name}</div>
+                  <div className="text-[32px] font-bold text-white tracking-tight mb-1">{plan.price}</div>
+                  <div className="text-[11px] text-axiom-text-mute">{plan.includes}</div>
                 </div>
               ))}
             </div>
@@ -265,7 +308,7 @@ const MaintenanceMatrix: React.FC = () => {
   );
 };
 
-/* ─── Emergency Triage Form (Multi-Step) ─── */
+/* Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ Emergency Triage Form (Multi-Step) Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
 const TriageForm: React.FC = () => {
   const [step, setStep] = useState(1);
   const [submitted, setSubmitted] = useState(false);
@@ -273,7 +316,7 @@ const TriageForm: React.FC = () => {
 
   const statusOptions = ['Complete Failure', 'Making Noise', 'Leaking', 'Poor Airflow'];
   const typeOptions = ['AC / Central Air', 'Furnace', 'Heat Pump', 'Boiler / Radiant'];
-  const ageOptions = ['Under 5 years', '5–10 years', 'Over 10 years', 'Unknown'];
+  const ageOptions = ['Under 5 years', '5Ã¢â‚¬â€œ10 years', 'Over 10 years', 'Unknown'];
 
   const OptionButton = ({ label, selected, onClick }: { label: string; selected: boolean; onClick: () => void }) => (
     <button type="button" onClick={onClick} className={`w-full text-left p-4 border transition-colors min-h-[52px] text-[14px] font-medium ${selected ? 'border-cyan-400/40 bg-cyan-400/10 text-white' : 'border-white/5 bg-[#0e0d0c] text-stone-400 hover:border-white/15'
@@ -309,7 +352,7 @@ const TriageForm: React.FC = () => {
                 <div className="w-12 h-12 border border-cyan-400/30 mx-auto mb-6 flex items-center justify-center">
                   <svg className="w-6 h-6 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
                 </div>
-                <h4 className="text-white font-semibold text-xl mb-2">Triage Complete — Dispatch Queued.</h4>
+                <h4 className="text-white font-semibold text-xl mb-2">Triage Complete Ã¢â‚¬â€ Dispatch Queued.</h4>
                 <p className="text-stone-500 text-[14px]">A technician matched to your system type will confirm within 2 hours.</p>
               </div>
             ) : (
@@ -356,13 +399,13 @@ const TriageForm: React.FC = () => {
                       <button type="button" onClick={() => { setTriage({ ...triage, urgency: 'emergency' }); setTimeout(() => setStep(4), 200); }}
                         className={`w-full text-left p-5 border transition-colors min-h-[52px] ${triage.urgency === 'emergency' ? 'border-red-500/40 bg-red-500/10 text-white' : 'border-white/5 bg-[#0e0d0c] text-stone-400 hover:border-red-500/20'
                           }`}>
-                        <span className="block text-[14px] font-semibold">🚨 Emergency Dispatch Required</span>
+                        <span className="block text-[14px] font-semibold">Ã°Å¸Å¡Â¨ Emergency Dispatch Required</span>
                         <span className="block text-[12px] text-stone-500 mt-1">Technician dispatched within 2 hours</span>
                       </button>
                       <button type="button" onClick={() => { setTriage({ ...triage, urgency: 'maintenance' }); setTimeout(() => setStep(4), 200); }}
                         className={`w-full text-left p-5 border transition-colors min-h-[52px] ${triage.urgency === 'maintenance' ? 'border-cyan-400/40 bg-cyan-400/10 text-white' : 'border-white/5 bg-[#0e0d0c] text-stone-400 hover:border-white/15'
                           }`}>
-                        <span className="block text-[14px] font-semibold">🔧 Schedule Maintenance</span>
+                        <span className="block text-[14px] font-semibold">Ã°Å¸â€Â§ Schedule Maintenance</span>
                         <span className="block text-[12px] text-stone-500 mt-1">Next available slot, usually within 48 hours</span>
                       </button>
                     </div>
@@ -401,7 +444,7 @@ const TriageForm: React.FC = () => {
                 {step > 1 && !submitted && (
                   <div className="px-6 pb-4">
                     <button type="button" onClick={() => setStep(step - 1)} className="text-[11px] font-mono text-stone-600 uppercase tracking-widest hover:text-stone-400 transition-colors min-h-[48px]">
-                      ← Back
+                      Ã¢â€ Â Back
                     </button>
                   </div>
                 )}
@@ -414,16 +457,16 @@ const TriageForm: React.FC = () => {
   );
 };
 
-/* ─── Footer ─── */
+/* Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ Footer Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
 const Footer: React.FC = () => (
   <footer className="axiom-shell-section border-t border-axiom-border mb-14">
     <div className="axiom-shell-inner flex flex-col gap-6">
       {/* Trust Badges */}
       <div className="grid md:grid-cols-3 gap-4">
         {[
-          { badge: 'TSSA Certified', icon: '🛡️' },
-          { badge: 'WSIB Insured', icon: '✅' },
-          { badge: '24/7 Dispatch', icon: '🚨' },
+          { badge: 'TSSA Certified', icon: 'Ã°Å¸â€ºÂ¡Ã¯Â¸Â' },
+          { badge: 'WSIB Insured', icon: 'Ã¢Å“â€¦' },
+          { badge: '24/7 Dispatch', icon: 'Ã°Å¸Å¡Â¨' },
         ].map((item) => (
           <div key={item.badge} className="axiom-bento flex items-center gap-2 px-4 py-2">
             <span className="text-[12px]">{item.icon}</span>
@@ -438,7 +481,7 @@ const Footer: React.FC = () => (
           <span>Apex Climate Systems</span>
           <span>LIC# 8492021</span>
           <a href="tel:+15195550199" className="hover:text-stone-400 transition-colors min-h-[48px] inline-flex items-center">(519) 555-0199</a>
-          <span>© {new Date().getFullYear()}</span>
+          <span>Ã‚Â© {new Date().getFullYear()}</span>
         </div>
         <div className="axiom-bento flex items-center gap-6 text-[10px] font-mono text-axiom-text-mute uppercase tracking-widest">
           <a href="#" className="hover:text-white transition-colors min-h-[48px] inline-flex items-center">Privacy Policy</a>
@@ -453,7 +496,7 @@ const Footer: React.FC = () => (
   </footer>
 );
 
-/* ─── App ─── */
+/* Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ App Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
 const App: React.FC = () => {
   useEffect(() => {
     const nodes = Array.from(document.querySelectorAll<HTMLElement>('.magnetic-primary'));
@@ -481,12 +524,26 @@ const App: React.FC = () => {
     return () => window.removeEventListener('mousemove', onMove);
   }, []);
 
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+    document.querySelectorAll('.axiom-bento').forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div className="min-h-screen bg-axiom-base flex flex-col font-axiomSans text-axiom-text-main">
       <Header />
       <main className="flex-1">
         <Hero />
         <DiagnosticsGrid />
+        <ROITerminal />
         <MaintenanceMatrix />
         <TriageForm />
       </main>
