@@ -164,7 +164,7 @@ const DiagnosticsGrid: React.FC = () => (
             { id: 'HX-01', title: 'Furnace Systems', desc: 'High-efficiency forced-air heating deployment. Variable-speed blower calibration and combustion analysis.', metric: '98% AFUE' },
             { id: 'CL-02', title: 'Cooling Infrastructure', desc: 'Precision-sized AC systems with zoned airflow mapping. SEER 21+ rated equipment standard.', metric: 'SEER 21+' },
             { id: 'VN-03', title: 'Ventilation', desc: 'ERV/HRV balanced ventilation. Indoor air quality monitoring with particulate filtration.', metric: 'MERV-16' },
- { id: 'HP-04', title: 'Heat Pumps', desc: 'Cold-climate heat pump deployment rated to -30Â°C. Ground-source and air-source configurations.', metric: 'COP 4.2' },
+{ id: 'HP-04', title: 'Heat Pumps', desc: 'Cold-climate heat pump deployment rated to -30°C. Ground-source and air-source configurations.', metric: 'COP 4.2' },
             { id: 'CT-05', title: 'Controls & IoT', desc: 'Smart thermostat integration with building automation systems. Remote diagnostics capability.', metric: '24/7 Link' },
             { id: 'DT-06', title: 'Duct Engineering', desc: 'Manual J/D load calculations. Static pressure testing and leak sealing to <4% loss.', metric: '<4% Loss' },
           ].map((s, i) => (
@@ -655,7 +655,7 @@ const Footer: React.FC = () => (
           <span>Apex Climate Systems</span>
           <span>LIC# 8492021</span>
           <a href="tel:+15195550199" className="hover:text-axiom-text-mute transition-colors min-h-[48px] inline-flex items-center">(519) 555-0199</a>
- <span>Â© {new Date().getFullYear()}</span>
+<span>© {new Date().getFullYear()}</span>
         </div>
         <div className="axiom-bento flex items-center gap-6 text-[10px] font-axiomMono text-axiom-text-mute uppercase tracking-widest">
           <a href="#" className="hover:text-axiom-text-main transition-colors min-h-[48px] inline-flex items-center">Privacy Policy</a>
