@@ -378,17 +378,91 @@ const MaintenanceMatrix: React.FC = () => {
               ))}
             </div>
 
-            {/* Plan CTAs */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-[1px] mt-[1px] bg-white/5">
+            {/* Pricing Offer */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
               {[
-                { name: 'Foundation', price: '$7,500+', includes: 'High-ticket launch stack' },
-                { name: "Contractor's Choice", price: '$7,500+', includes: 'Most selected for growth teams', featured: true },
-                { name: 'Authority', price: '$7,500+', includes: 'Multi-location expansion stack' },
-              ].map((plan, i) => (
-                <div key={i} className={`axiom-bento p-6 ${plan.featured ? 'border-t-2 border-t-axiom-accent' : ''}`}>
-                  <div className="text-[10px] font-mono text-axiom-text-mute uppercase tracking-widest mb-1">{plan.name}</div>
-                  <div className="text-[32px] font-bold text-white tracking-tight mb-1">{plan.price}</div>
-                  <div className="text-[11px] text-axiom-text-mute">{plan.includes}</div>
+                {
+                  name: 'Foundation',
+                  price: '$7,500+',
+                  summary: 'Launch-grade HVAC infrastructure engineered for conversion speed.',
+                  qualifier: 'Best for single-market operators building authority.',
+                  technical: '3-5 pages // edge delivery // dispatch form stack',
+                  outcomes: [
+                    'Clear service hierarchy for high-intent visitors',
+                    'Emergency funnel designed for fast mobile actions',
+                    'Instrumentation for calls, forms, and qualified leads',
+                  ],
+                },
+                {
+                  name: "Contractor's Choice",
+                  price: '$7,500+',
+                  featured: true,
+                  summary: 'Most selected by teams scaling install volume and service agreements.',
+                  qualifier: 'Best for teams of 10+ targeting premium ticket mix.',
+                  technical: '7-10 pages // ROI terminal // trust architecture',
+                  outcomes: [
+                    'Qualification-first flows that reduce low-margin calls',
+                    'High-ticket offer framing across replacement services',
+                    'Launch support through first campaign and dispatch cycle',
+                  ],
+                },
+                {
+                  name: 'Authority',
+                  price: '$7,500+',
+                  summary: 'Bespoke multi-location architecture for expanding HVAC groups.',
+                  qualifier: 'Best for operators running multiple crews and territories.',
+                  technical: 'custom stack // workflow mapping // executive reporting',
+                  outcomes: [
+                    'CRM-aware conversion routing for service categories',
+                    'Market expansion templates with local proof blocks',
+                    'Quarterly optimization and instrumentation reviews',
+                  ],
+                },
+              ].map((plan) => (
+                <article
+                  key={plan.name}
+                  className={`axiom-bento bg-axiom-surface border border-axiom-border p-6 sm:p-8 flex flex-col gap-5 ${plan.featured ? 'border-t-2 border-t-axiom-accent' : ''}`}
+                >
+                  <div className="flex items-center justify-between gap-3">
+                    <h3 className="font-axiomSans text-[24px] font-semibold tracking-tight text-axiom-text-main">{plan.name}</h3>
+                    {plan.featured && (
+                      <span className="font-axiomMono text-[10px] uppercase tracking-[0.14em] text-axiom-accent border border-axiom-accent/40 px-2 py-1 rounded">
+                        Contractor's Choice
+                      </span>
+                    )}
+                  </div>
+
+                  <p className="font-axiomSans text-[14px] leading-relaxed text-axiom-text-main/90">{plan.summary}</p>
+                  <p className="font-axiomSans text-[32px] leading-none font-bold text-axiom-text-main">{plan.price}</p>
+                  <p className="font-axiomMono text-[11px] uppercase tracking-[0.14em] text-axiom-text-mute">{plan.technical}</p>
+
+                  <ul className="space-y-3 flex-1">
+                    {plan.outcomes.map((item) => (
+                      <li key={item} className="flex items-start gap-2.5 text-[14px] text-axiom-text-main/90 leading-relaxed">
+                        <span className="mt-[2px] text-axiom-accent">
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="M20 7L10 17L5 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                          </svg>
+                        </span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <p className="font-axiomSans text-[12px] text-axiom-text-mute">{plan.qualifier}</p>
+                </article>
+              ))}
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mt-4">
+              {[
+                { label: 'Guarantee', value: 'Sub-second HVAC page tuning included.' },
+                { label: 'Proof', value: 'Lead-to-dispatch visibility delivered at handoff.' },
+                { label: 'Partner Fit', value: 'Limited to 4 active build partners monthly.' },
+              ].map((item) => (
+                <div key={item.label} className="axiom-bento bg-axiom-surface border border-axiom-border p-4">
+                  <p className="font-axiomMono text-[10px] uppercase tracking-[0.14em] text-axiom-text-mute">{item.label}</p>
+                  <p className="font-axiomSans text-[14px] text-axiom-text-main mt-2">{item.value}</p>
                 </div>
               ))}
             </div>
@@ -645,3 +719,4 @@ const App: React.FC = () => {
 };
 
 export default App;
+
