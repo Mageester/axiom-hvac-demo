@@ -387,7 +387,7 @@ const MaintenanceMatrix: React.FC = () => {
               {[
                 {
                   name: 'Foundation',
-                  price: '$7,500+',
+                  price: '$7,500',
                   summary: 'Launch-grade HVAC infrastructure engineered for conversion speed.',
                   qualifier: 'Best for single-market operators building authority.',
                   technical: '3-5 pages // edge delivery // dispatch form stack',
@@ -638,9 +638,9 @@ const Footer: React.FC = () => (
       {/* Trust Badges */}
       <div className="grid md:grid-cols-3 gap-4">
         {[
-          { badge: 'TSSA Certified', icon: 'ï¿½' },
- { badge: 'WSIB Insured', icon: 'ï¿½' },
-          { badge: '24/7 Dispatch', icon: 'ï¿½' },
+          { badge: 'TSSA Certified', icon: '•' },
+          { badge: 'WSIB Insured', icon: '•' },
+          { badge: '24/7 Dispatch', icon: '•' },
         ].map((item) => (
           <div key={item.badge} className="axiom-bento flex items-center gap-2 px-4 py-2">
             <span className="text-[12px]">{item.icon}</span>
