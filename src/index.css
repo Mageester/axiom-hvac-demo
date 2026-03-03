@@ -184,3 +184,52 @@ select:focus {
   }
 }
 
+
+/* System Hardening Overrides */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image: radial-gradient(rgba(245, 247, 250, 0.3) 0.5px, transparent 0.5px);
+  background-size: 3px 3px;
+  opacity: 0.025;
+  z-index: 0;
+}
+
+.axiom-bento {
+  padding: clamp(24px, 2.4vw, 32px) !important;
+  background-color: #13171B !important;
+  border-color: #31363B !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.05) !important;
+}
+
+.axiom-shell-section h1,
+.axiom-shell-section h2,
+.axiom-shell-section h3,
+.axiom-shell-section h4,
+.axiom-shell-section h5,
+.axiom-shell-section h6,
+.axiom-shell-section h1 *,
+.axiom-shell-section h2 *,
+.axiom-shell-section h3 *,
+.axiom-shell-section h4 *,
+.axiom-shell-section h5 *,
+.axiom-shell-section h6 * {
+  color: #F5F7FA !important;
+}
+
+.axiom-shell-section p,
+.axiom-shell-section li,
+.axiom-shell-section label,
+.axiom-shell-section small {
+  color: #A7B3BC;
+}
+
+@media (max-width: 767px) {
+  .axiom-shell-section,
+  .section {
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+  }
+}

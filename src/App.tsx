@@ -1,12 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react';
 
-/* Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â
-   HVAC Ã¢â‚¬â€ "The Clinical/Service Structure"
+/*
+ HVAC  "The Clinical/Service Structure"
    Layout: Tech-forward, rigid symmetrical grids, split-screen hero
    Unique: Sticky dispatch banner, Maintenance Schedule Matrix
-   Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â */
+ */
 
-/* Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ Sticky Emergency Dispatch Banner Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
+/*  Sticky Emergency Dispatch Banner  */
 const DispatchBanner: React.FC = () => (
   <div className="fixed bottom-0 left-0 right-0 z-50 bg-axiom-accent border-t border-axiom-border">
     <div className="axiom-shell-inner px-6 md:px-10 xl:px-20 h-14 flex items-center justify-between">
@@ -15,7 +15,7 @@ const DispatchBanner: React.FC = () => (
           <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
           <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-white"></span>
         </span>
-        <span className="text-white text-[13px] font-bold uppercase tracking-wider">24/7 Emergency Dispatch Active</span>
+        <span className="text-axiom-text-main text-[13px] font-bold uppercase tracking-wider">24/7 Emergency Dispatch Active</span>
       </div>
       <a href="tel:+15195550199" className="magnetic-primary bg-axiom-text-main text-axiom-base px-6 min-h-[48px] flex items-center text-[12px] font-bold uppercase tracking-widest hover:bg-white transition-colors rounded-sm">
         Call Now: (519) 555-0199
@@ -24,38 +24,38 @@ const DispatchBanner: React.FC = () => (
   </div>
 );
 
-/* Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ Header Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
+/*  Header  */
 const Header: React.FC = () => (
   <header className="fixed top-4 left-0 right-0 z-40 px-6 md:px-10 xl:px-20">
     <div className="axiom-glass axiom-shell-inner border-b border-axiom-border h-16 flex items-center justify-between px-6">
       <div className="flex items-center gap-3">
-        <div className="w-8 h-8 border border-cyan-400/40 rounded-none flex items-center justify-center bg-cyan-400/10">
-          <svg className="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" /></svg>
+        <div className="w-8 h-8 border border-axiom-border rounded-none flex items-center justify-center bg-axiom-surface">
+          <svg className="w-4 h-4 text-axiom-text-mute" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" /></svg>
         </div>
         <div>
-          <h1 className="text-white font-semibold text-[15px] tracking-tight leading-none">Apex Climate</h1>
-          <span className="text-cyan-400/50 text-[10px] font-mono uppercase tracking-[0.25em]">Systems Engineering</span>
+          <h1 className="text-axiom-text-main font-semibold text-[15px] tracking-tight leading-none">Apex Climate</h1>
+          <span className="text-axiom-text-mute text-[10px] font-axiomMono uppercase tracking-[0.25em]">Systems Engineering</span>
         </div>
       </div>
 
-      <nav className="hidden md:flex items-center text-[12px] font-mono text-stone-500 uppercase tracking-widest">
-        <a href="#diagnostics" className="px-5 py-4 hover:text-cyan-400 transition-colors">Diagnostics</a>
-        <a href="#systems" className="px-5 py-4 hover:text-cyan-400 transition-colors">Systems</a>
-        <a href="#maintenance" className="px-5 py-4 hover:text-cyan-400 transition-colors">Maintenance</a>
-        <a href="#deploy" className="px-5 py-4 hover:text-cyan-400 transition-colors">Triage</a>
+      <nav className="hidden md:flex items-center text-[12px] font-axiomMono text-axiom-text-mute uppercase tracking-widest">
+        <a href="#diagnostics" className="px-5 py-4 hover:text-axiom-text-mute transition-colors">Diagnostics</a>
+        <a href="#systems" className="px-5 py-4 hover:text-axiom-text-mute transition-colors">Systems</a>
+        <a href="#maintenance" className="px-5 py-4 hover:text-axiom-text-mute transition-colors">Maintenance</a>
+        <a href="#deploy" className="px-5 py-4 hover:text-axiom-text-mute transition-colors">Triage</a>
       </nav>
 
       <div className="flex items-center gap-3">
         <div className="hidden sm:flex items-center gap-2 border border-white/5 px-3 py-1.5 rounded-none">
-          <div className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse"></div>
-          <span className="text-[10px] font-mono text-stone-500 uppercase tracking-widest">Online</span>
+          <div className="w-1.5 h-1.5 bg-axiom-surface rounded-full animate-pulse"></div>
+          <span className="text-[10px] font-axiomMono text-axiom-text-mute uppercase tracking-widest">Online</span>
         </div>
       </div>
     </div>
   </header>
 );
 
-/* Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ Split-Screen Hero Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
+/*  Split-Screen Hero  */
 const Hero: React.FC = () => {
   const heroBgRef = useRef<HTMLDivElement | null>(null);
 
@@ -102,15 +102,15 @@ const Hero: React.FC = () => {
             <a href="#deploy" className="magnetic-primary hero-primary-cta bg-axiom-accent text-axiom-text-main px-8 min-h-[52px] flex items-center justify-center text-[13px] font-bold uppercase tracking-widest transition-colors">
               Request Emergency Triage
             </a>
-            <a href="#numbers" className="text-axiom-text-main/85 text-[15px] inline-flex items-center gap-1 hover:text-white transition-colors">
+            <a href="#numbers" className="text-axiom-text-main/85 text-[15px] inline-flex items-center gap-1 hover:text-axiom-text-main transition-colors">
               See the numbers <span aria-hidden>{'->'}</span>
             </a>
-            <a href="tel:+15195550199" className="border border-white/30 text-white px-8 min-h-[52px] flex items-center justify-center text-[13px] font-bold uppercase tracking-widest hover:border-axiom-accent/65 transition-colors">
+            <a href="tel:+15195550199" className="border border-white/30 text-axiom-text-main px-8 min-h-[52px] flex items-center justify-center text-[13px] font-bold uppercase tracking-widest hover:border-axiom-accent/65 transition-colors">
               Call: (519) 555-0199
             </a>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 border border-white/15 bg-black/25 backdrop-blur-sm">
+          <div className="grid grid-cols-2 md:grid-cols-4 border border-white/15 bg-axiom-base backdrop-blur-sm">
             {[
               { label: 'Response Target', value: '<2 Hours' },
               { label: 'Dispatch Coverage', value: '24/7' },
@@ -129,7 +129,7 @@ const Hero: React.FC = () => {
   );
 };
 
-/* Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ System Diagnostics Grid Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
+/*  System Diagnostics Grid  */
 const DiagnosticsGrid: React.FC = () => (
   <section id="diagnostics" className="axiom-shell-section axiom-grain border-t border-axiom-border">
     <div className="axiom-shell-inner">
@@ -138,10 +138,10 @@ const DiagnosticsGrid: React.FC = () => (
         <div className="col-span-12 md:col-span-3">
           <div className="sticky top-24">
               <div className="flex items-center gap-3 mb-4">
-                <div className="h-[1px] w-8 bg-cyan-400/40"></div>
-                <span className="text-[10px] font-mono text-cyan-400/60 uppercase tracking-[0.25em]">01</span>
+                <div className="h-[1px] w-8 bg-axiom-surface"></div>
+                <span className="text-[10px] font-axiomMono text-axiom-text-mute uppercase tracking-[0.25em]">01</span>
               </div>
-              <h3 className="text-[28px] font-bold text-white tracking-tight leading-tight mb-3">Core<br />Systems</h3>
+              <h3 className="text-[28px] font-bold text-axiom-text-main tracking-tight leading-tight mb-3">Core<br />Systems</h3>
               <h4 className="axiom-command-heading mb-3">ELIMINATING ROI FRICTION</h4>
               <div className="axiom-reading-measure">
                 <div className="axiom-reading-prose">
@@ -154,23 +154,23 @@ const DiagnosticsGrid: React.FC = () => (
             </div>
           </div>
 
-        {/* Service cards Ã¢â‚¬â€ rigid 3-column grid */}
+ {/* Service cards  rigid 3-column grid */}
         <div className="col-span-12 md:col-span-9 grid grid-cols-1 sm:grid-cols-3 gap-[1px] bg-white/5">
           {[
             { id: 'HX-01', title: 'Furnace Systems', desc: 'High-efficiency forced-air heating deployment. Variable-speed blower calibration and combustion analysis.', metric: '98% AFUE' },
             { id: 'CL-02', title: 'Cooling Infrastructure', desc: 'Precision-sized AC systems with zoned airflow mapping. SEER 21+ rated equipment standard.', metric: 'SEER 21+' },
             { id: 'VN-03', title: 'Ventilation', desc: 'ERV/HRV balanced ventilation. Indoor air quality monitoring with particulate filtration.', metric: 'MERV-16' },
-            { id: 'HP-04', title: 'Heat Pumps', desc: 'Cold-climate heat pump deployment rated to -30Ã‚Â°C. Ground-source and air-source configurations.', metric: 'COP 4.2' },
+ { id: 'HP-04', title: 'Heat Pumps', desc: 'Cold-climate heat pump deployment rated to -30°C. Ground-source and air-source configurations.', metric: 'COP 4.2' },
             { id: 'CT-05', title: 'Controls & IoT', desc: 'Smart thermostat integration with building automation systems. Remote diagnostics capability.', metric: '24/7 Link' },
             { id: 'DT-06', title: 'Duct Engineering', desc: 'Manual J/D load calculations. Static pressure testing and leak sealing to <4% loss.', metric: '<4% Loss' },
           ].map((s, i) => (
             <div key={i} className="axiom-bento p-6 group hover:bg-[#161514] transition-colors">
               <div className="flex justify-between items-start mb-4">
-                <span className="text-[9px] font-mono text-stone-600 uppercase tracking-widest">{s.id}</span>
-                <span className="text-[10px] font-mono text-cyan-400/60 uppercase tracking-widest">{s.metric}</span>
+                <span className="text-[9px] font-axiomMono text-axiom-text-mute uppercase tracking-widest">{s.id}</span>
+                <span className="text-[10px] font-axiomMono text-axiom-text-mute uppercase tracking-widest">{s.metric}</span>
               </div>
-              <h4 className="text-white font-semibold text-[15px] mb-2 tracking-tight">{s.title}</h4>
-              <p className="text-stone-500 text-[12px] leading-relaxed">{s.desc}</p>
+              <h4 className="text-axiom-text-main font-semibold text-[15px] mb-2 tracking-tight">{s.title}</h4>
+              <p className="text-axiom-text-mute text-[12px] leading-relaxed">{s.desc}</p>
             </div>
           ))}
         </div>
@@ -179,7 +179,7 @@ const DiagnosticsGrid: React.FC = () => (
   </section>
 );
 
-/* Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ Maintenance Schedule Matrix (UNIQUE COMPONENT) Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
+/*  Maintenance Schedule Matrix (UNIQUE COMPONENT)  */
 const ROITerminal: React.FC = () => {
   const [lostCalls, setLostCalls] = useState(2);
   const [displayValue, setDisplayValue] = useState(120000);
@@ -335,11 +335,11 @@ const MaintenanceMatrix: React.FC = () => {
           <div className="col-span-12 md:col-span-3">
             <div className="sticky top-24">
               <div className="flex items-center gap-3 mb-4">
-                <div className="h-[1px] w-8 bg-cyan-400/40"></div>
-                <span className="text-[10px] font-mono text-cyan-400/60 uppercase tracking-[0.25em]">02</span>
+                <div className="h-[1px] w-8 bg-axiom-surface"></div>
+                <span className="text-[10px] font-axiomMono text-axiom-text-mute uppercase tracking-[0.25em]">02</span>
               </div>
-              <h3 className="text-[28px] font-bold text-white tracking-tight leading-tight mb-3">Maintenance<br />Matrix</h3>
-              <p className="text-stone-500 text-[13px] leading-relaxed">Year-round preventive maintenance protocol. Each checkmark is a scheduled service touchpoint.</p>
+              <h3 className="text-[28px] font-bold text-axiom-text-main tracking-tight leading-tight mb-3">Maintenance<br />Matrix</h3>
+              <p className="text-axiom-text-mute text-[13px] leading-relaxed">Year-round preventive maintenance protocol. Each checkmark is a scheduled service touchpoint.</p>
             </div>
           </div>
 
@@ -348,11 +348,11 @@ const MaintenanceMatrix: React.FC = () => {
               {/* Header row */}
               <div className="grid grid-cols-5 bg-[#111110]">
                 <div className="p-4 border-r border-white/5">
-                  <span className="text-[10px] font-mono text-stone-600 uppercase tracking-widest">Service Item</span>
+                  <span className="text-[10px] font-axiomMono text-axiom-text-mute uppercase tracking-widest">Service Item</span>
                 </div>
                 {seasons.map(s => (
                   <div key={s} className="p-4 text-center border-r border-white/5 last:border-r-0">
-                    <span className="text-[10px] font-mono text-cyan-400/60 uppercase tracking-widest">{s}</span>
+                    <span className="text-[10px] font-axiomMono text-axiom-text-mute uppercase tracking-widest">{s}</span>
                   </div>
                 ))}
               </div>
@@ -361,13 +361,13 @@ const MaintenanceMatrix: React.FC = () => {
               {tasks.map((task, i) => (
                 <div key={i} className="grid grid-cols-5 border-t border-white/5 hover:bg-[#111110] transition-colors">
                   <div className="p-4 border-r border-white/5 flex items-center">
-                    <span className="text-[13px] text-stone-300">{task.name}</span>
+                    <span className="text-[13px] text-axiom-text-mute">{task.name}</span>
                   </div>
                   {[task.spring, task.summer, task.fall, task.winter].map((active, j) => (
                     <div key={j} className="p-4 flex items-center justify-center border-r border-white/5 last:border-r-0">
                       {active ? (
-                        <div className="w-3 h-3 bg-cyan-400/20 border border-cyan-400/40 flex items-center justify-center">
-                          <div className="w-1.5 h-1.5 bg-cyan-400"></div>
+                        <div className="w-3 h-3 bg-axiom-surface border border-axiom-border flex items-center justify-center">
+                          <div className="w-1.5 h-1.5 bg-axiom-surface"></div>
                         </div>
                       ) : (
                         <div className="w-3 h-3 border border-white/10"></div>
@@ -395,7 +395,7 @@ const MaintenanceMatrix: React.FC = () => {
                 },
                 {
                   name: "Contractor's Choice",
-                  price: '$7,500+',
+                  price: '$12,500',
                   featured: true,
                   summary: 'Most selected by teams scaling install volume and service agreements.',
                   qualifier: 'Best for teams of 10+ targeting premium ticket mix.',
@@ -407,8 +407,9 @@ const MaintenanceMatrix: React.FC = () => {
                   ],
                 },
                 {
-                  name: 'Authority',
-                  price: '$7,500+',
+                  name: 'Elite Command',
+                  price: '$18,500+',
+                  elite: true,
                   summary: 'Bespoke multi-location architecture for expanding HVAC groups.',
                   qualifier: 'Best for operators running multiple crews and territories.',
                   technical: 'custom stack // workflow mapping // executive reporting',
@@ -421,15 +422,19 @@ const MaintenanceMatrix: React.FC = () => {
               ].map((plan) => (
                 <article
                   key={plan.name}
-                  className={`axiom-bento bg-axiom-surface border border-axiom-border p-6 sm:p-8 flex flex-col gap-5 ${plan.featured ? 'border-t-2 border-t-axiom-accent' : ''}`}
+                  className={`axiom-bento bg-axiom-surface border border-axiom-border p-6 sm:p-8 flex flex-col gap-5 ${plan.featured ? 'border-t-2 border-t-axiom-accent' : ''} ${plan.elite ? 'ring-1 ring-axiom-accent/50' : ''}`}
                 >
                   <div className="flex items-center justify-between gap-3">
                     <h3 className="font-axiomSans text-[24px] font-semibold tracking-tight text-axiom-text-main">{plan.name}</h3>
-                    {plan.featured && (
+                    {plan.featured ? (
                       <span className="font-axiomMono text-[10px] uppercase tracking-[0.14em] text-axiom-accent border border-axiom-accent/40 px-2 py-1 rounded">
                         Contractor's Choice
                       </span>
-                    )}
+                    ) : plan.elite ? (
+                      <span className="font-axiomMono text-[10px] uppercase tracking-[0.14em] text-axiom-accent border border-axiom-accent/50 px-2 py-1 rounded">
+                        Elite Package
+                      </span>
+                    ) : null}
                   </div>
 
                   <p className="font-axiomSans text-[14px] leading-relaxed text-axiom-text-main/90">{plan.summary}</p>
@@ -473,7 +478,7 @@ const MaintenanceMatrix: React.FC = () => {
   );
 };
 
-/* Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ Emergency Triage Form (Multi-Step) Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
+/*  Emergency Triage Form (Multi-Step)  */
 const TriageForm: React.FC = () => {
   const [step, setStep] = useState(1);
   const [submitted, setSubmitted] = useState(false);
@@ -481,10 +486,10 @@ const TriageForm: React.FC = () => {
 
   const statusOptions = ['Complete Failure', 'Making Noise', 'Leaking', 'Poor Airflow'];
   const typeOptions = ['AC / Central Air', 'Furnace', 'Heat Pump', 'Boiler / Radiant'];
-  const ageOptions = ['Under 5 years', '5Ã¢â‚¬â€œ10 years', 'Over 10 years', 'Unknown'];
+ const ageOptions = ['Under 5 years', '5-10 years', 'Over 10 years', 'Unknown'];
 
   const OptionButton = ({ label, selected, onClick }: { label: string; selected: boolean; onClick: () => void }) => (
-    <button type="button" onClick={onClick} className={`w-full text-left p-4 border transition-colors min-h-[52px] text-[14px] font-medium ${selected ? 'border-cyan-400/40 bg-cyan-400/10 text-white' : 'border-white/5 bg-[#0e0d0c] text-stone-400 hover:border-white/15'
+    <button type="button" onClick={onClick} className={`w-full text-left p-4 border transition-colors min-h-[52px] text-[14px] font-medium ${selected ? 'border-axiom-border bg-axiom-surface text-axiom-text-main' : 'border-white/5 bg-[#0e0d0c] text-axiom-text-mute hover:border-white/15'
       }`}>{label}</button>
   );
 
@@ -495,37 +500,37 @@ const TriageForm: React.FC = () => {
           <div className="col-span-12 md:col-span-3">
             <div className="sticky top-24">
               <div className="flex items-center gap-3 mb-4">
-                <div className="h-[1px] w-8 bg-cyan-400/40"></div>
-                <span className="text-[10px] font-mono text-cyan-400/60 uppercase tracking-[0.25em]">03</span>
+                <div className="h-[1px] w-8 bg-axiom-surface"></div>
+                <span className="text-[10px] font-axiomMono text-axiom-text-mute uppercase tracking-[0.25em]">03</span>
               </div>
-              <h3 className="text-[28px] font-bold text-white tracking-tight leading-tight mb-3">Emergency<br />Triage</h3>
-              <p className="text-stone-500 text-[13px] leading-relaxed">Answer 4 quick questions so we can dispatch the right technician with the right parts.</p>
+              <h3 className="text-[28px] font-bold text-axiom-text-main tracking-tight leading-tight mb-3">Emergency<br />Triage</h3>
+              <p className="text-axiom-text-mute text-[13px] leading-relaxed">Answer 4 quick questions so we can dispatch the right technician with the right parts.</p>
 
               {/* Step indicator */}
               <div className="flex items-center gap-2 mt-6">
                 {[1, 2, 3, 4].map((s) => (
-                  <div key={s} className={`h-1 flex-1 rounded-full transition-colors ${step >= s || submitted ? 'bg-cyan-400' : 'bg-white/10'}`}></div>
+                  <div key={s} className={`h-1 flex-1 rounded-full transition-colors ${step >= s || submitted ? 'bg-axiom-surface' : 'bg-white/10'}`}></div>
                 ))}
               </div>
-              <p className="text-[10px] font-mono text-stone-600 uppercase tracking-widest mt-2">{submitted ? 'Complete' : `Step ${step} of 4`}</p>
+              <p className="text-[10px] font-axiomMono text-axiom-text-mute uppercase tracking-widest mt-2">{submitted ? 'Complete' : `Step ${step} of 4`}</p>
             </div>
           </div>
 
           <div className="col-span-12 md:col-span-9">
             {submitted ? (
-              <div className="axiom-glass border-cyan-400/20 bg-cyan-400/5 p-16 text-center">
-                <div className="w-12 h-12 border border-cyan-400/30 mx-auto mb-6 flex items-center justify-center">
-                  <svg className="w-6 h-6 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+              <div className="axiom-glass border-axiom-border bg-axiom-surface p-16 text-center">
+                <div className="w-12 h-12 border border-axiom-border mx-auto mb-6 flex items-center justify-center">
+                  <svg className="w-6 h-6 text-axiom-text-mute" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
                 </div>
-                <h4 className="text-white font-semibold text-xl mb-2">Triage Complete Ã¢â‚¬â€ Dispatch Queued.</h4>
-                <p className="text-stone-500 text-[14px]">A technician matched to your system type will confirm within 2 hours.</p>
+ <h4 className="text-axiom-text-main font-semibold text-xl mb-2">Triage Complete  Dispatch Queued.</h4>
+                <p className="text-axiom-text-mute text-[14px]">A technician matched to your system type will confirm within 2 hours.</p>
               </div>
             ) : (
               <div className="axiom-glass">
                 {/* Step 1: System Status */}
                 {step === 1 && (
                   <div className="p-6 flex flex-col gap-4">
-                    <p className="text-[10px] font-mono text-cyan-400/60 uppercase tracking-widest mb-2">What's happening with your system?</p>
+                    <p className="text-[10px] font-axiomMono text-axiom-text-mute uppercase tracking-widest mb-2">What's happening with your system?</p>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                       {statusOptions.map((opt) => (
                         <OptionButton key={opt} label={opt} selected={triage.status === opt} onClick={() => { setTriage({ ...triage, status: opt }); setTimeout(() => setStep(2), 200); }} />
@@ -538,7 +543,7 @@ const TriageForm: React.FC = () => {
                 {step === 2 && (
                   <div className="p-6 flex flex-col gap-6">
                     <div className="flex flex-col gap-3">
-                      <p className="text-[10px] font-mono text-cyan-400/60 uppercase tracking-widest">System Type</p>
+                      <p className="text-[10px] font-axiomMono text-axiom-text-mute uppercase tracking-widest">System Type</p>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                         {typeOptions.map((opt) => (
                           <OptionButton key={opt} label={opt} selected={triage.systemType === opt} onClick={() => setTriage({ ...triage, systemType: opt })} />
@@ -546,7 +551,7 @@ const TriageForm: React.FC = () => {
                       </div>
                     </div>
                     <div className="flex flex-col gap-3">
-                      <p className="text-[10px] font-mono text-cyan-400/60 uppercase tracking-widest">System Age</p>
+                      <p className="text-[10px] font-axiomMono text-axiom-text-mute uppercase tracking-widest">System Age</p>
                       <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
                         {ageOptions.map((opt) => (
                           <OptionButton key={opt} label={opt} selected={triage.systemAge === opt} onClick={() => { setTriage({ ...triage, systemAge: opt }); setTimeout(() => setStep(3), 200); }} />
@@ -559,19 +564,19 @@ const TriageForm: React.FC = () => {
                 {/* Step 3: Urgency */}
                 {step === 3 && (
                   <div className="p-6 flex flex-col gap-4">
-                    <p className="text-[10px] font-mono text-cyan-400/60 uppercase tracking-widest mb-2">How urgent is this?</p>
+                    <p className="text-[10px] font-axiomMono text-axiom-text-mute uppercase tracking-widest mb-2">How urgent is this?</p>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                       <button type="button" onClick={() => { setTriage({ ...triage, urgency: 'emergency' }); setTimeout(() => setStep(4), 200); }}
-                        className={`w-full text-left p-5 border transition-colors min-h-[52px] ${triage.urgency === 'emergency' ? 'border-red-500/40 bg-red-500/10 text-white' : 'border-white/5 bg-[#0e0d0c] text-stone-400 hover:border-red-500/20'
+                        className={`w-full text-left p-5 border transition-colors min-h-[52px] ${triage.urgency === 'emergency' ? 'border-axiom-border bg-axiom-surface text-axiom-text-main' : 'border-white/5 bg-[#0e0d0c] text-axiom-text-mute hover:border-axiom-border'
                           }`}>
-                        <span className="block text-[14px] font-semibold">Ã°Å¸Å¡Â¨ Emergency Dispatch Required</span>
-                        <span className="block text-[12px] text-stone-500 mt-1">Technician dispatched within 2 hours</span>
+                        <span className="block text-[14px] font-semibold"> Emergency Dispatch Required</span>
+                        <span className="block text-[12px] text-axiom-text-mute mt-1">Technician dispatched within 2 hours</span>
                       </button>
                       <button type="button" onClick={() => { setTriage({ ...triage, urgency: 'maintenance' }); setTimeout(() => setStep(4), 200); }}
-                        className={`w-full text-left p-5 border transition-colors min-h-[52px] ${triage.urgency === 'maintenance' ? 'border-cyan-400/40 bg-cyan-400/10 text-white' : 'border-white/5 bg-[#0e0d0c] text-stone-400 hover:border-white/15'
+                        className={`w-full text-left p-5 border transition-colors min-h-[52px] ${triage.urgency === 'maintenance' ? 'border-axiom-border bg-axiom-surface text-axiom-text-main' : 'border-white/5 bg-[#0e0d0c] text-axiom-text-mute hover:border-white/15'
                           }`}>
-                        <span className="block text-[14px] font-semibold">Ã°Å¸â€Â§ Schedule Maintenance</span>
-                        <span className="block text-[12px] text-stone-500 mt-1">Next available slot, usually within 48 hours</span>
+                        <span className="block text-[14px] font-semibold"> Schedule Maintenance</span>
+                        <span className="block text-[12px] text-axiom-text-mute mt-1">Next available slot, usually within 48 hours</span>
                       </button>
                     </div>
                   </div>
@@ -581,20 +586,20 @@ const TriageForm: React.FC = () => {
                 {step === 4 && (
                   <form onSubmit={(e) => { e.preventDefault(); setSubmitted(true); }}>
                     <div className="p-6 flex flex-col gap-4">
-                      <p className="text-[10px] font-mono text-cyan-400/60 uppercase tracking-widest mb-2">Your Contact Details</p>
+                      <p className="text-[10px] font-axiomMono text-axiom-text-mute uppercase tracking-widest mb-2">Your Contact Details</p>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-[1px] bg-white/5">
                         <div className="p-4 bg-[#111110]">
-                          <label className="text-[10px] font-mono text-stone-600 uppercase tracking-widest block mb-2">Full Name</label>
-                          <input type="text" required value={triage.name} onChange={(e) => setTriage({ ...triage, name: e.target.value })} className="w-full bg-transparent border-b border-white/10 py-3 min-h-[48px] text-white text-[15px] focus:border-cyan-400/40 outline-none transition-colors" />
+                          <label className="text-[10px] font-axiomMono text-axiom-text-mute uppercase tracking-widest block mb-2">Full Name</label>
+                          <input type="text" required value={triage.name} onChange={(e) => setTriage({ ...triage, name: e.target.value })} className="w-full bg-transparent border-b border-white/10 py-3 min-h-[48px] text-axiom-text-main text-[15px] focus:border-axiom-border outline-none transition-colors" />
                         </div>
                         <div className="p-4 bg-[#111110]">
-                          <label className="text-[10px] font-mono text-stone-600 uppercase tracking-widest block mb-2">Phone</label>
-                          <input type="tel" required value={triage.phone} onChange={(e) => setTriage({ ...triage, phone: e.target.value })} className="w-full bg-transparent border-b border-white/10 py-3 min-h-[48px] text-white text-[15px] focus:border-cyan-400/40 outline-none transition-colors" />
+                          <label className="text-[10px] font-axiomMono text-axiom-text-mute uppercase tracking-widest block mb-2">Phone</label>
+                          <input type="tel" required value={triage.phone} onChange={(e) => setTriage({ ...triage, phone: e.target.value })} className="w-full bg-transparent border-b border-white/10 py-3 min-h-[48px] text-axiom-text-main text-[15px] focus:border-axiom-border outline-none transition-colors" />
                         </div>
                       </div>
                       <div className="p-4 bg-[#0e0d0c] border border-white/5">
-                        <label className="text-[10px] font-mono text-stone-600 uppercase tracking-widest block mb-2">Service Address</label>
-                        <input type="text" required value={triage.address} onChange={(e) => setTriage({ ...triage, address: e.target.value })} className="w-full bg-transparent border-b border-white/10 py-3 min-h-[48px] text-white text-[15px] focus:border-cyan-400/40 outline-none transition-colors" />
+                        <label className="text-[10px] font-axiomMono text-axiom-text-mute uppercase tracking-widest block mb-2">Service Address</label>
+                        <input type="text" required value={triage.address} onChange={(e) => setTriage({ ...triage, address: e.target.value })} className="w-full bg-transparent border-b border-white/10 py-3 min-h-[48px] text-axiom-text-main text-[15px] focus:border-axiom-border outline-none transition-colors" />
                       </div>
                     </div>
                     <div className="p-6 border-t border-white/5">
@@ -608,8 +613,8 @@ const TriageForm: React.FC = () => {
                 {/* Back button (steps 2-4) */}
                 {step > 1 && !submitted && (
                   <div className="px-6 pb-4">
-                    <button type="button" onClick={() => setStep(step - 1)} className="text-[11px] font-mono text-stone-600 uppercase tracking-widest hover:text-stone-400 transition-colors min-h-[48px]">
-                      Ã¢â€ Â Back
+                    <button type="button" onClick={() => setStep(step - 1)} className="text-[11px] font-axiomMono text-axiom-text-mute uppercase tracking-widest hover:text-axiom-text-mute transition-colors min-h-[48px]">
+ Back
                     </button>
                   </div>
                 )}
@@ -622,46 +627,46 @@ const TriageForm: React.FC = () => {
   );
 };
 
-/* Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ Footer Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
+/*  Footer  */
 const Footer: React.FC = () => (
   <footer className="axiom-shell-section border-t border-axiom-border mb-14">
     <div className="axiom-shell-inner flex flex-col gap-6">
       {/* Trust Badges */}
       <div className="grid md:grid-cols-3 gap-4">
         {[
-          { badge: 'TSSA Certified', icon: 'Ã°Å¸â€ºÂ¡Ã¯Â¸Â' },
-          { badge: 'WSIB Insured', icon: 'Ã¢Å“â€¦' },
-          { badge: '24/7 Dispatch', icon: 'Ã°Å¸Å¡Â¨' },
+          { badge: 'TSSA Certified', icon: '�' },
+ { badge: 'WSIB Insured', icon: '�' },
+          { badge: '24/7 Dispatch', icon: '�' },
         ].map((item) => (
           <div key={item.badge} className="axiom-bento flex items-center gap-2 px-4 py-2">
             <span className="text-[12px]">{item.icon}</span>
-            <span className="text-[10px] font-mono text-stone-400 uppercase tracking-widest">{item.badge}</span>
+            <span className="text-[10px] font-axiomMono text-axiom-text-mute uppercase tracking-widest">{item.badge}</span>
           </div>
         ))}
       </div>
 
       {/* Info row */}
       <div className="grid md:grid-cols-3 gap-4">
-        <div className="axiom-bento flex flex-wrap items-center justify-center gap-x-6 gap-y-1 text-[10px] font-mono text-stone-600 uppercase tracking-widest">
+        <div className="axiom-bento flex flex-wrap items-center justify-center gap-x-6 gap-y-1 text-[10px] font-axiomMono text-axiom-text-mute uppercase tracking-widest">
           <span>Apex Climate Systems</span>
           <span>LIC# 8492021</span>
-          <a href="tel:+15195550199" className="hover:text-stone-400 transition-colors min-h-[48px] inline-flex items-center">(519) 555-0199</a>
-          <span>Ã‚Â© {new Date().getFullYear()}</span>
+          <a href="tel:+15195550199" className="hover:text-axiom-text-mute transition-colors min-h-[48px] inline-flex items-center">(519) 555-0199</a>
+ <span>© {new Date().getFullYear()}</span>
         </div>
-        <div className="axiom-bento flex items-center gap-6 text-[10px] font-mono text-axiom-text-mute uppercase tracking-widest">
-          <a href="#" className="hover:text-white transition-colors min-h-[48px] inline-flex items-center">Privacy Policy</a>
-          <a href="#" className="hover:text-white transition-colors min-h-[48px] inline-flex items-center">Terms of Service</a>
+        <div className="axiom-bento flex items-center gap-6 text-[10px] font-axiomMono text-axiom-text-mute uppercase tracking-widest">
+          <a href="#" className="hover:text-axiom-text-main transition-colors min-h-[48px] inline-flex items-center">Privacy Policy</a>
+          <a href="#" className="hover:text-axiom-text-main transition-colors min-h-[48px] inline-flex items-center">Terms of Service</a>
         </div>
         <div className="axiom-bento flex items-center justify-center gap-2">
-          <div className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse"></div>
-          <span className="text-[10px] font-mono text-stone-500 uppercase tracking-widest">All systems operational</span>
+          <div className="w-1.5 h-1.5 bg-axiom-surface rounded-full animate-pulse"></div>
+          <span className="text-[10px] font-axiomMono text-axiom-text-mute uppercase tracking-widest">All systems operational</span>
         </div>
       </div>
     </div>
   </footer>
 );
 
-/* Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ App Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
+/*  App  */
 const App: React.FC = () => {
   useEffect(() => {
     const nodes = Array.from(document.querySelectorAll<HTMLElement>('.magnetic-primary'));
@@ -719,4 +724,5 @@ const App: React.FC = () => {
 };
 
 export default App;
+
 
