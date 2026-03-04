@@ -17,7 +17,7 @@ const DispatchBanner: React.FC = () => (
         </span>
         <span className="text-axiom-text-main text-[13px] font-bold uppercase tracking-wider">24/7 Emergency Dispatch Active</span>
       </div>
-      <a href="tel:+15195550199" className="btn-secondary btn-md whitespace-nowrap">
+      <a href="tel:+15195550199" className="btn-primary magnetic-primary btn-md whitespace-nowrap hover:scale-105 transition-transform duration-300">
         Call Now: (519) 555-0199
       </a>
     </div>
@@ -27,7 +27,7 @@ const DispatchBanner: React.FC = () => (
 /*  Header  */
 const Header: React.FC = () => (
   <header className="fixed top-4 left-0 right-0 z-40 px-6 md:px-10 xl:px-20">
-    <div className="axiom-glass axiom-shell-inner border-b border-axiom-border h-16 flex items-center justify-between px-6">
+    <div className="axiom-glass axiom-shell-inner border-0 h-16 flex items-center justify-between px-6 shadow-xl shadow-black/20">
       <div className="flex items-center gap-3">
         <div className="w-8 h-8 border border-axiom-border rounded-none flex items-center justify-center bg-axiom-surface">
           <svg className="w-4 h-4 text-axiom-text-mute" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" /></svg>
@@ -137,36 +137,36 @@ const Hero: React.FC = () => {
 
 /*  System Diagnostics Grid  */
 const DiagnosticsGrid: React.FC = () => (
-  <section id="diagnostics" className="axiom-shell-section axiom-grain border-t border-axiom-border">
+  <section id="diagnostics" className="axiom-section axiom-grain border-t border-axiom-border">
     <div className="axiom-shell-inner">
       <div className="grid grid-cols-12 gap-6">
         {/* Label column */}
         <div className="col-span-12 md:col-span-3">
           <div className="sticky top-24">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="h-[1px] w-8 bg-axiom-surface"></div>
-                <span className="text-[10px] font-axiomMono text-axiom-text-mute uppercase tracking-[0.25em]">01</span>
-              </div>
-              <h3 className="text-[28px] font-bold text-axiom-text-main tracking-tight leading-tight mb-3">Core<br />Systems</h3>
-              <h4 className="axiom-command-heading mb-3">ELIMINATING ROI FRICTION</h4>
-              <div className="axiom-reading-measure">
-                <div className="axiom-reading-prose">
-                  <p>Comprehensive climate solutions engineered for peak performance.</p>
-                  <p>Dispatch reliability and pre-qualified intake prevent emergency demand from turning into lost revenue windows.</p>
-                </div>
-              </div>
-              <div className="axiom-mono-callout mt-4">AXIOM // Every minute of downtime reroutes urgent calls to faster operators.</div>
-              <div className="axiom-chapter-divider mt-5"></div>
+            <div className="flex items-center gap-3 mb-4">
+              <div className="h-[1px] w-8 bg-axiom-surface"></div>
+              <span className="text-[10px] font-axiomMono text-axiom-text-mute uppercase tracking-[0.25em]">01</span>
             </div>
+            <h3 className="text-[28px] font-bold text-axiom-text-main tracking-tight leading-tight mb-3">Core<br />Systems</h3>
+            <h4 className="axiom-command-heading mb-3">ELIMINATING ROI FRICTION</h4>
+            <div className="axiom-reading-measure">
+              <div className="axiom-reading-prose">
+                <p>Comprehensive climate solutions engineered for peak performance.</p>
+                <p>Dispatch reliability and pre-qualified intake prevent emergency demand from turning into lost revenue windows.</p>
+              </div>
+            </div>
+            <div className="axiom-mono-callout mt-4">AXIOM // Every minute of downtime reroutes urgent calls to faster operators.</div>
+            <div className="axiom-chapter-divider mt-5"></div>
           </div>
+        </div>
 
- {/* Service cards  rigid 3-column grid */}
+        {/* Service cards  rigid 3-column grid */}
         <div className="col-span-12 md:col-span-9 grid grid-cols-1 sm:grid-cols-3 gap-[1px] bg-white/5">
           {[
             { id: 'HX-01', title: 'Furnace Systems', desc: 'High-efficiency forced-air heating deployment. Variable-speed blower calibration and combustion analysis.', metric: '98% AFUE' },
             { id: 'CL-02', title: 'Cooling Infrastructure', desc: 'Precision-sized AC systems with zoned airflow mapping. SEER 21+ rated equipment standard.', metric: 'SEER 21+' },
             { id: 'VN-03', title: 'Ventilation', desc: 'ERV/HRV balanced ventilation. Indoor air quality monitoring with particulate filtration.', metric: 'MERV-16' },
-{ id: 'HP-04', title: 'Heat Pumps', desc: 'Cold-climate heat pump deployment rated to -30°C. Ground-source and air-source configurations.', metric: 'COP 4.2' },
+            { id: 'HP-04', title: 'Heat Pumps', desc: 'Cold-climate heat pump deployment rated to -30°C. Ground-source and air-source configurations.', metric: 'COP 4.2' },
             { id: 'CT-05', title: 'Controls & IoT', desc: 'Smart thermostat integration with building automation systems. Remote diagnostics capability.', metric: '24/7 Link' },
             { id: 'DT-06', title: 'Duct Engineering', desc: 'Manual J/D load calculations. Static pressure testing and leak sealing to <4% loss.', metric: '<4% Loss' },
           ].map((s, i) => (
@@ -187,7 +187,7 @@ const DiagnosticsGrid: React.FC = () => (
 
 /*  Dispatch Readiness Module (UNIQUE COMPONENT)  */
 const DispatchReadiness: React.FC = () => (
-  <section id="systems" className="axiom-shell-section axiom-grain border-t border-axiom-border">
+  <section id="systems" className="axiom-section axiom-grain border-t border-axiom-border">
     <div className="axiom-shell-inner">
       <div className="axiom-bento terminal-grid bg-axiom-surface p-6 md:p-8">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-6">
@@ -255,7 +255,7 @@ const ROITerminal: React.FC = () => {
   }, [annualLeak]);
 
   return (
-    <section id="numbers" className="axiom-shell-section axiom-grain border-t border-axiom-border">
+    <section id="numbers" className="axiom-section axiom-grain border-t border-axiom-border">
       <div className="axiom-shell-inner max-w-5xl">
         <div className="axiom-bento is-visible relative overflow-hidden p-0 bg-axiom-surface border border-axiom-border">
           <div
@@ -380,7 +380,7 @@ const MaintenanceMatrix: React.FC = () => {
   ];
 
   return (
-    <section id="maintenance" className="axiom-shell-section axiom-grain border-t border-axiom-border">
+    <section id="maintenance" className="axiom-section axiom-grain border-t border-axiom-border">
       <div className="axiom-shell-inner">
         <div className="grid grid-cols-12 gap-6">
           <div className="col-span-12 md:col-span-3">
@@ -542,7 +542,7 @@ const TriageForm: React.FC = () => {
 
   const statusOptions = ['Complete Failure', 'Making Noise', 'Leaking', 'Poor Airflow'];
   const typeOptions = ['AC / Central Air', 'Furnace', 'Heat Pump', 'Boiler / Radiant'];
- const ageOptions = ['Under 5 years', '5-10 years', 'Over 10 years', 'Unknown'];
+  const ageOptions = ['Under 5 years', '5-10 years', 'Over 10 years', 'Unknown'];
 
   const OptionButton = ({ label, selected, onClick }: { label: string; selected: boolean; onClick: () => void }) => (
     <button type="button" onClick={onClick} className={`w-full text-left p-4 border transition-colors min-h-[52px] text-[14px] font-medium ${selected ? 'border-axiom-border bg-axiom-surface text-axiom-text-main' : 'border-axiom-border bg-axiom-elevated text-axiom-text-mute hover:border-axiom-border'
@@ -550,7 +550,7 @@ const TriageForm: React.FC = () => {
   );
 
   return (
-    <section id="deploy" className="axiom-shell-section axiom-grain border-t border-axiom-border">
+    <section id="deploy" className="axiom-section axiom-grain border-t border-axiom-border">
       <div className="axiom-shell-inner">
         <div className="grid grid-cols-12 gap-6">
           <div className="col-span-12 md:col-span-3">
@@ -578,7 +578,7 @@ const TriageForm: React.FC = () => {
                 <div className="w-12 h-12 border border-axiom-border mx-auto mb-6 flex items-center justify-center">
                   <svg className="w-6 h-6 text-axiom-text-mute" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
                 </div>
- <h4 className="text-axiom-text-main font-semibold text-xl mb-2">Triage Complete  Dispatch Queued.</h4>
+                <h4 className="text-axiom-text-main font-semibold text-xl mb-2">Triage Complete  Dispatch Queued.</h4>
                 <p className="text-axiom-text-mute text-[14px]">A technician matched to your system type will confirm within 2 hours.</p>
               </div>
             ) : (
@@ -670,7 +670,7 @@ const TriageForm: React.FC = () => {
                 {step > 1 && !submitted && (
                   <div className="px-6 pb-4">
                     <button type="button" onClick={() => setStep(step - 1)} className="text-[11px] font-axiomMono text-axiom-text-mute uppercase tracking-widest hover:text-axiom-text-mute transition-colors min-h-[48px]">
- Back
+                      Back
                     </button>
                   </div>
                 )}
@@ -685,7 +685,7 @@ const TriageForm: React.FC = () => {
 
 /*  Footer  */
 const Footer: React.FC = () => (
-  <footer className="axiom-shell-section border-t border-axiom-border mb-14">
+  <footer className="axiom-section border-t border-axiom-border mb-14">
     <div className="axiom-shell-inner flex flex-col gap-6">
       {/* Trust Badges */}
       <div className="grid md:grid-cols-3 gap-4">
@@ -707,7 +707,7 @@ const Footer: React.FC = () => (
           <span>Apex Climate Systems</span>
           <span>LIC# 8492021</span>
           <a href="tel:+15195550199" className="hover:text-axiom-text-mute transition-colors min-h-[48px] inline-flex items-center">(519) 555-0199</a>
-<span>© {new Date().getFullYear()}</span>
+          <span>© {new Date().getFullYear()}</span>
         </div>
         <div className="axiom-bento flex items-center gap-6 text-[10px] font-axiomMono text-axiom-text-mute uppercase tracking-widest">
           <a href="#" className="hover:text-axiom-text-main transition-colors min-h-[48px] inline-flex items-center">Privacy Policy</a>
